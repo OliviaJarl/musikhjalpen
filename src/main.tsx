@@ -4,15 +4,15 @@ import { ChakraProvider, ColorModeScript } from "@chakra-ui/react";
 //import App from "./App.tsx"; //Använd App när köra Spotify skript, och Router när jobba med navigation
 import theme from "./theme.ts";
 import "./index.css";
-import { RouterProvider } from "react-router-dom";
+import { RouterProvider} from "react-router-dom";
 import router from "./routes.tsx";
 
 // <RouterProvider router={router}/> Istället för App.tsx
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <ChakraProvider theme={theme}>
-      <ColorModeScript initialColorMode={theme.config.initialColorMode}/>
-      <RouterProvider router={router}/>
-      </ChakraProvider>
+      <ColorModeScript initialColorMode={theme.config.initialColorMode} />
+      <RouterProvider router={router} />
+    </ChakraProvider>
   </React.StrictMode>
 );
