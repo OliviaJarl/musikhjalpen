@@ -1,11 +1,10 @@
-import {Grid, GridItem} from "@chakra-ui/react";
-import NavBar from "./components/NavBar";
+import { Text } from "@chakra-ui/react";
 function App() {
-  return <Grid templateAreas={ `"nav" "main" `}>
-    <GridItem area="nav"><NavBar /></GridItem>
-    <GridItem area="main">Main</GridItem>
-
-  </Grid>;
+  return (
+    <>
+      <Text>Nu körs skriptet med Spotify</Text>
+    </>
+  );
 }
 
 export default App;

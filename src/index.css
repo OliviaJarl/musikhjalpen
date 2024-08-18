@@ -1,0 +1,6 @@
+html, body {
+    margin: auto;
+    padding: 0;
+    overflow-x: hidden;
+    max-width: 1540px;
+  }

@@ -1,0 +1,861 @@
+{
+  "years": [
+    {
+      "id": 0,
+      "year": "2023",
+      "collected": 59510761,
+      "startdatetime": "2023-12-11T20:10:00Z",
+      "enddatetime": "2023-12-17T21:00:00Z",
+      "theme": "Ingen ska behöva dö av hunger",
+      "city": "Växjö",
+      "hosts": ["Oscar Zia", "Sofia Dalén", "Linnea Wikblad"],
+      "travelling_hosts": ["Tina Mehrafzoon"],
+      "image": {
+        "src": "/2023.webp",
+        "copyright": "Foto: Mattias Ahlm"
+      },
+      "most_wished_artists": [
+        "Hooja",
+        "Taylor Swift",
+        "Lars Winnerbäck",
+        "Thomas Stenström",
+        "Håkan Hellström"
+        ],
+      "most_wished_songs": [ 
+        "Hey Ho - Freddy Kalas",
+        "Banan Melon Kiwi & Citron - Hooja",
+        "Ser Du Månen Där Du Är Ikväll? (Tillsammans Igen) - Thomas Stenström",
+        "Håå Vee - Hv71",
+        "Fairytale Of New York - The Pogues & Kirsty MacColl"
+        ],
+      "playlist_external_url": "https://open.spotify.com/playlist/3ZCa9urDLbg5ieXuFy6uAZ",
+      "playlist_name": "Musikhjälpen 2023",
+      "playlist_id": "3ZCa9urDLbg5ieXuFy6uAZ",
+      "playlist_images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d00001e027cf86e25329d5ad6bad5c56bab67616d00001e02806a186dbe661aef5e44ce65ab67616d00001e029ba0825b2c01f465b452f860ab67616d00001e02e88303455281336c352f90ce",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d00001e027cf86e25329d5ad6bad5c56bab67616d00001e02806a186dbe661aef5e44ce65ab67616d00001e029ba0825b2c01f465b452f860ab67616d00001e02e88303455281336c352f90ce",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d00001e027cf86e25329d5ad6bad5c56bab67616d00001e02806a186dbe661aef5e44ce65ab67616d00001e029ba0825b2c01f465b452f860ab67616d00001e02e88303455281336c352f90ce",
+          "width": 60
+        }
+      ],
+      "total_tracks": 1263,
+      "tracks_api_href": "https://api.spotify.com/v1/playlists/3ZCa9urDLbg5ieXuFy6uAZ/tracks"
+    },
+    {
+      "id": 1,
+      "year": "2022",
+      "collected": 54517949,
+      "startdatetime": "2022-12-12T20:10:00Z",
+      "enddatetime": "2022-12-18T21:00:00Z",
+      "theme": "För en tryggare barndom på flykt från krig",
+      "city": "Göteborg",
+      "hosts": ["Klas Eriksson", "Oscar Zia", "Tina Mehrafzoon"],
+      "travelling_hosts": ["Parisa Amiri"],
+      "image": {
+        "src": "/2022.webp",
+        "copyright": "Foto: Mattias Ahlm/Sveriges Radio"
+      },
+      "most_wished_artists": [
+        "Hooja",
+        "Håkan Hellström",
+        "Thomas Stenström",
+        "Shervin Hajipour",
+        "Miss Li",
+        "kent",
+        "Albin Lee Meldau",
+        "Laleh",
+        "Coldplay",
+        "Queen"
+        ],
+      "most_wished_songs": [
+                "Shervin Hajipour - Baraye",
+                "Hooja - Banan Melon Kiwi & Citron",
+                "Freddy Kalas - Hey Ho",
+                "Thomas Stenström - Ser du månen där du är ikväll? (Tillsammans igen)",
+                "kent - Utan dina andetag",
+                "Hannes & Waterbaby - Stockholmsvy",
+                "Darin - What's the Point",
+                "Albin Lee Meldau - Mamma",
+                "Wham! - Last Christmas",
+                "Mariah Carey - All I Want for Christmas Is You"
+            ],
+      "playlist_external_url": "https://open.spotify.com/playlist/2GzbK6sJGQ9DJQAqC6jtmD",
+      "playlist_name": "Musikhjälpen 2022",
+      "playlist_id": "2GzbK6sJGQ9DJQAqC6jtmD",
+      "playlist_images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d00001e02491e8f0929ed15512204ece1ab67616d00001e0256072fea6785a3ad2d24237cab67616d00001e0264b993918687c471c7e9d19bab67616d00001e0284d413b195aac8a69cc6e5c6",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d00001e02491e8f0929ed15512204ece1ab67616d00001e0256072fea6785a3ad2d24237cab67616d00001e0264b993918687c471c7e9d19bab67616d00001e0284d413b195aac8a69cc6e5c6",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d00001e02491e8f0929ed15512204ece1ab67616d00001e0256072fea6785a3ad2d24237cab67616d00001e0264b993918687c471c7e9d19bab67616d00001e0284d413b195aac8a69cc6e5c6",
+          "width": 60
+        }
+      ],
+      "total_tracks": 1337,
+      "tracks_api_href": "https://api.spotify.com/v1/playlists/2GzbK6sJGQ9DJQAqC6jtmD/tracks"
+    },
+    {
+      "id": 2,
+      "year": "2021",
+      "collected": 54306748,
+      "startdatetime": "2021-12-13T19:02:00Z",
+      "enddatetime": "2021-12-19T21:00:00Z",
+      "theme": "För en värld utan barnarbete",
+      "city": "Norrköping",
+      "hosts": ["Kodjo Akolor", "Linnea Henriksson", "Brita Zackari", "Oscar Zia", "Anis Don Demina"],
+      "travelling_hosts": ["Tina Mehrafzoon"],
+      "image": {
+        "src": "/2021.webp",
+        "copyright": "Foto: Mattias Ahlm/Sveriges Radio"
+      },
+      "most_wished_artists": [
+        "Julio Iglesias",
+        "Thomas Stenström",
+        "Ed Sheeran",
+        "Kent",
+        "Laleh"
+      ],
+      "most_wished_songs": [
+        "Julio Iglesias - Pobre Diablo",
+        "Thomas Stenström - Ser du månen där du är ikväll? (Tillsammans igen)",
+        "Freddy Kalas - Hey Ho",
+        "Daniel Adams-Ray - Skotthål",
+        "Kent - Utan dina andetag"
+      ],
+      "playlist_external_url": "https://open.spotify.com/playlist/0mdJESWH3ED9yv0BoaBs1r",
+      "playlist_name": "Musikhjälpen 2021",
+      "playlist_id": "0mdJESWH3ED9yv0BoaBs1r",
+      "playlist_images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d00001e020bd44f5ff9ecc99f7770acc5ab67616d00001e0240d0f2a4d4c9b5b7ac978f4bab67616d00001e02781f6dd5abe91929df0314e3ab67616d00001e02ec10f247b100da1ce0d80b6d",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d00001e020bd44f5ff9ecc99f7770acc5ab67616d00001e0240d0f2a4d4c9b5b7ac978f4bab67616d00001e02781f6dd5abe91929df0314e3ab67616d00001e02ec10f247b100da1ce0d80b6d",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d00001e020bd44f5ff9ecc99f7770acc5ab67616d00001e0240d0f2a4d4c9b5b7ac978f4bab67616d00001e02781f6dd5abe91929df0314e3ab67616d00001e02ec10f247b100da1ce0d80b6d",
+          "width": 60
+        }
+      ],
+      "total_tracks": 1341,
+      "tracks_api_href": "https://api.spotify.com/v1/playlists/0mdJESWH3ED9yv0BoaBs1r/tracks"
+    },
+    {
+      "id": 3,
+      "year": "2020",
+      "collected": 48071000,
+      "startdatetime": "2020-12-14T20:02:00Z",
+      "enddatetime": "2020-12-20T21:00:00Z",
+      "theme": "Ingen människa ska lämnas utan vård",
+      "city": "Stockholm",
+      "hosts": ["Farah Abadi", "Brita Zackari", "Felix Sandman"],
+      "travelling_hosts": ["Linnea Henriksson", "Hanna Persson"],
+      "image": {
+        "src": "/2020.webp",
+        "copyright": "Foto: Mattias Ahlm/Sveriges radio"
+      },
+      "most_wished_artists": [
+        "Newkid",
+        "Håkan Hellström",
+        "Laleh",
+        "Kent",
+        "Benjamin Ingrosso"
+      ],
+      "most_wished_songs": [
+        "Newkid - Du måste finnas",
+        "Newkid - Starkare",
+        "Victor Leksell - Svag",
+        "Thomas Stenström - Ser du månen där du är i kväll? (Tillsammans igen)",
+        "Freddy Kalas - Hey ho"
+      ],
+      "playlist_external_url": "https://open.spotify.com/playlist/3HJJGkIjkZ873akuBoH37s",
+      "playlist_name": "Musikhjälpen 2020",
+      "playlist_id": "3HJJGkIjkZ873akuBoH37s",
+      "playlist_images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d00001e023d9621bb2904dc57a60a6b36ab67616d00001e0291e93c59bacfe819db9601ebab67616d00001e02d85988c50a38d51264dada0bab67616d00001e02f14aa81116510d3a6df8432b",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d00001e023d9621bb2904dc57a60a6b36ab67616d00001e0291e93c59bacfe819db9601ebab67616d00001e02d85988c50a38d51264dada0bab67616d00001e02f14aa81116510d3a6df8432b",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d00001e023d9621bb2904dc57a60a6b36ab67616d00001e0291e93c59bacfe819db9601ebab67616d00001e02d85988c50a38d51264dada0bab67616d00001e02f14aa81116510d3a6df8432b",
+          "width": 60
+        }
+      ],
+      "total_tracks": 1288,
+      "tracks_api_href": "https://api.spotify.com/v1/playlists/3HJJGkIjkZ873akuBoH37s/tracks"
+    },
+    {
+      "id": 4,
+      "year": "2019",
+      "collected": 50572139,
+      "startdatetime": "2019-12-09T21:03:00Z",
+      "enddatetime": "2019-12-15T21:00:00Z",
+      "theme": "Sex är inte ett vapen",
+      "city": "Västerås",
+      "hosts": ["Farah Abadi", "Miriam Bryant", "Daniel Hallberg"],
+      "travelling_hosts": ["Janice Kavander"],
+      "image": {
+        "src": "/2019.webp",
+        "copyright": "Foto: Mattias Ahlm"
+      },
+      "most_wished_artists": [
+        "Marie Fredriksson",
+        "Miriam Bryant",
+        "Miss Li",
+        "Avicii",
+        "Håkan Hellström"
+      ],
+      "most_wished_songs": [
+        "Lev nu dö sen - Miss Li",
+        "Blåmärkshårt (Mi Amor) - Miriam Bryant",
+        "Sparvöga - Marie Fredriksson",
+        "Tro - Marie Fredriksson",
+        "Dance Monkey - Tones & I"
+      ],
+      "playlist_external_url": "https://open.spotify.com/playlist/3yUvXtVPjs6yJqLLRDNxdp",
+      "playlist_name": "Musikhjälpen 2019",
+      "playlist_id": "3yUvXtVPjs6yJqLLRDNxdp",
+      "playlist_images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d00001e02681d6da9a0ab5ff23fadf0f9ab67616d00001e0282c80d6ec5b001d9ae49564dab67616d00001e02e14f11f796cef9f9a82691a7ab67616d00001e02faf3e7716a1fcc4d243f051b",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d00001e02681d6da9a0ab5ff23fadf0f9ab67616d00001e0282c80d6ec5b001d9ae49564dab67616d00001e02e14f11f796cef9f9a82691a7ab67616d00001e02faf3e7716a1fcc4d243f051b",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d00001e02681d6da9a0ab5ff23fadf0f9ab67616d00001e0282c80d6ec5b001d9ae49564dab67616d00001e02e14f11f796cef9f9a82691a7ab67616d00001e02faf3e7716a1fcc4d243f051b",
+          "width": 60
+        }
+      ],
+      "total_tracks": 1216,
+      "tracks_api_href": "https://api.spotify.com/v1/playlists/3yUvXtVPjs6yJqLLRDNxdp/tracks"
+    },
+    {
+      "id": 5,
+      "year": "2018",
+      "collected": 50550204,
+      "startdatetime": "2018-12-10T20:02:00Z",
+      "enddatetime": "2018-12-16T21:00:00Z",
+      "theme": "Alla har rätt att funka olika",
+      "city": "Lund",
+      "hosts": ["Daniel Adams-Ray", "Farah Abadi", "William Spetz"],
+      "travelling_hosts": ["Hanna Persson"],
+      "image": {
+        "src": "/2018.webp",
+        "copyright": "Foto: Mattias Ahlm/Sveriges Radio"
+      },
+      "most_wished_artists": [
+        "Queen",
+        "Håkan Hellström",
+        "Laleh",
+        "Linnea Henriksson",
+        "Lady Gaga"
+      ],
+      "most_wished_songs": [
+        "Shallow - Lady Gaga feat Bradley Cooper",
+        "Småtjejer - Linnea Henriksson",
+        "Goliat - Laleh",
+        "Bara få vara mig själv - Laleh",
+        "Bohemian Rhapsody - Queen"
+      ],
+      "playlist_external_url": "https://open.spotify.com/playlist/4p7OttFbi4Eg4aHgBypQQO",
+      "playlist_name": "Musikhjälpen 2018",
+      "playlist_id": "4p7OttFbi4Eg4aHgBypQQO",
+      "playlist_images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d00001e02128057b40732c042c86de1ddab67616d00001e028e5deed9a2a9ae9a5c8766cbab67616d00001e02a26cc58b4d64c2ece3376389ab67616d00001e02e2d156fdc691f57900134342",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d00001e02128057b40732c042c86de1ddab67616d00001e028e5deed9a2a9ae9a5c8766cbab67616d00001e02a26cc58b4d64c2ece3376389ab67616d00001e02e2d156fdc691f57900134342",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d00001e02128057b40732c042c86de1ddab67616d00001e028e5deed9a2a9ae9a5c8766cbab67616d00001e02a26cc58b4d64c2ece3376389ab67616d00001e02e2d156fdc691f57900134342",
+          "width": 60
+        }
+      ],
+      "total_tracks": 1389,
+      "tracks_api_href": "https://api.spotify.com/v1/playlists/4p7OttFbi4Eg4aHgBypQQO/tracks"
+    },
+    {
+      "id": 6,
+      "year": "2017",
+      "collected": 74410363,
+      "startdatetime": "2017-12-11T20:03:00Z",
+      "enddatetime": "2017-12-17T20:00:00Z",
+      "theme": "Barn är inte till salu",
+      "city": "Umeå",
+      "hosts": ["Farah Abadi", "Kalle Zackari Wahlström", "Molly Sandén"],
+      "travelling_hosts": ["Linnea Henriksson"],
+      "image": {
+        "src": "/2017.webp",
+        "copyright": "Foto: Sveriges Radio"
+      },
+      "most_wished_artists": [
+        "Kent",
+        "Håkan Hellström",
+        "Ed Sheeran",
+        "Laleh",
+        "Coldplay"
+      ],
+      "most_wished_songs": [
+        "Perfect - Ed Sheeran",
+        "Utan dina andetag - Kent",
+        "Goliat - Laleh",
+        "Jag trodde änglar fanns - Kamferdrops",
+        "Utan dig - Molly Sandén"
+      ],
+      "playlist_external_url": "https://open.spotify.com/playlist/77zqeH0U8pDo88y7rnYdU7",
+      "playlist_name": "Musikhjälpen 2017",
+      "playlist_id": "77zqeH0U8pDo88y7rnYdU7",
+      "playlist_images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d00001e024e0362c225863f6ae2432651ab67616d00001e025b1130d050c4cd2295999d85ab67616d00001e02bd3a4bf06615fbe23866d7b3ab67616d00001e02eeb668b40f24b2417943e211",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d00001e024e0362c225863f6ae2432651ab67616d00001e025b1130d050c4cd2295999d85ab67616d00001e02bd3a4bf06615fbe23866d7b3ab67616d00001e02eeb668b40f24b2417943e211",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d00001e024e0362c225863f6ae2432651ab67616d00001e025b1130d050c4cd2295999d85ab67616d00001e02bd3a4bf06615fbe23866d7b3ab67616d00001e02eeb668b40f24b2417943e211",
+          "width": 60
+        }
+      ],
+      "total_tracks": 1328,
+      "tracks_api_href": "https://api.spotify.com/v1/playlists/77zqeH0U8pDo88y7rnYdU7/tracks"
+    },
+    {
+      "id": 7,
+      "year": "2016",
+      "collected": 49003745,
+      "startdatetime": "2016-12-12T20:03:00Z",
+      "enddatetime": "2016-12-18T21:00:00Z",
+      "theme": "Barn i krig har rätt att gå i skolan",
+      "city": "Örebro",
+      "hosts": ["Kodjo Akolor", "Little Jinder", "Pelle Almqvist"],
+      "travelling_hosts": ["Molly Nutley"],
+      "image": {
+        "src": "/2016.webp",
+        "copyright": "Foto: Mattias Ahlm/Sveriges Radio"
+      },
+      "most_wished_artists": [
+        "Kent",
+        "Håkan Hellström",
+        "The Hives",
+        "Laleh",
+        "Little Jinder"
+      ],
+      "most_wished_songs": [
+        "Utan Dina Andetag - Kent",
+        "Eternal Love - Magnus Carlson",
+        "A Christmas Duel - The Hives & Cyndi Lauper",
+        "Goliat - Laleh",
+        "Bara Få Va Mig Själv - Laleh"
+      ],
+      "playlist_external_url": "https://open.spotify.com/playlist/5ijOHks65hLx8oSo2pRtMF",
+      "playlist_name": "Musikhjälpen 2016",
+      "playlist_id": "5ijOHks65hLx8oSo2pRtMF",
+      "playlist_images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d00001e021da278868ad7720e2a8ab725ab67616d00001e028daa8ac6367fc997c1873b9bab67616d00001e02db707600c010ecedccb8aaefab67616d00001e02f5e30500f0eec7d92b159eae",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d00001e021da278868ad7720e2a8ab725ab67616d00001e028daa8ac6367fc997c1873b9bab67616d00001e02db707600c010ecedccb8aaefab67616d00001e02f5e30500f0eec7d92b159eae",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d00001e021da278868ad7720e2a8ab725ab67616d00001e028daa8ac6367fc997c1873b9bab67616d00001e02db707600c010ecedccb8aaefab67616d00001e02f5e30500f0eec7d92b159eae",
+          "width": 60
+        }
+      ],
+      "total_tracks": 1207,
+      "tracks_api_href": "https://api.spotify.com/v1/playlists/5ijOHks65hLx8oSo2pRtMF/tracks"
+    },
+    {
+      "id": 8,
+      "year": "2015",
+      "collected": 31105000,
+      "startdatetime": "2015-12-13T16:03:00Z",
+      "enddatetime": "2015-12-19T22:30:00Z",
+      "theme": "Ingen ska behöva fly undan klimatet",
+      "city": "Linköping",
+      "hosts": ["Kodjo Akolor", "Linnea Henriksson", "Gina Dirawi"],
+      "travelling_hosts": ["Clara Henry"],
+      "image": {
+        "src": "/2015.webp",
+        "copyright": "Foto: Mattias Ahlm / Sveriges Radio"
+      },
+      "most_wished_artists": [
+        "Håkan Hellström",
+        "Miriam Bryant",
+        "Lars Winnerbäck",
+        "Coldplay",
+        "Kent",
+        "Bruce Springsteen",
+        "Justin Bieber",
+        "Adele",
+        "Michael Jackson",
+        "Queen"
+      ],
+      "most_wished_songs": [
+        "Adele - Hello",
+        "Miriam Bryant - Ett sista glas",
+        "Miriam Bryant - Allt jag behöver",
+        "Kent - Utan dina andetag",
+        "Justin Bieber - Love yourself",
+        "Alan Walker - Faded",
+        "Ghost - He is",
+        "The Puges & Kirsty McColl - Fairytale of New York",
+        "Håkan Hellström - Valborg",
+        "USA for Africa - We are the world"
+      ],
+      "playlist_external_url": "https://open.spotify.com/playlist/2c4pWTQhHUpRjyCJAMWHmR",
+      "playlist_name": "Musikhjälpen 2015",
+      "playlist_id": "2c4pWTQhHUpRjyCJAMWHmR",
+      "playlist_images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d00001e0230e25e64860e7bc2a8a97d87ab67616d00001e0295696945285b5f317c6f8445ab67616d00001e029e1683774b22648f4f178ed3ab67616d00001e02f46b9d202509a8f7384b90de",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d00001e0230e25e64860e7bc2a8a97d87ab67616d00001e0295696945285b5f317c6f8445ab67616d00001e029e1683774b22648f4f178ed3ab67616d00001e02f46b9d202509a8f7384b90de",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d00001e0230e25e64860e7bc2a8a97d87ab67616d00001e0295696945285b5f317c6f8445ab67616d00001e029e1683774b22648f4f178ed3ab67616d00001e02f46b9d202509a8f7384b90de",
+          "width": 60
+        }
+      ],
+      "total_tracks": 1177,
+      "tracks_api_href": "https://api.spotify.com/v1/playlists/2c4pWTQhHUpRjyCJAMWHmR/tracks"
+    },
+    {
+      "id": 9,
+      "year": "2014",
+      "collected": 30489975,
+      "startdatetime": "2014-12-08T22:00:00Z",
+      "enddatetime": "2014-12-14T22:30:00Z",
+      "theme": "Hjälp oss att stoppa spridningen av HIV",
+      "city": "Uppsala",
+      "hosts": ["Kodjo Akolor", "Linnea Henriksson", "Petter Askergren"],
+      "travelling_hosts": ["William Spetz"],
+      "image": {
+        "src": "/2014.webp",
+        "copyright": "Foto: Mattias Ahlm/Sveriges Radio"
+      },
+      "most_wished_artists": [
+        "Håkan Hellström",
+        "Petter",
+        "Queen",
+        "Kent",
+        "Bruce Springsteen",
+        "Ed Sheeran",
+        "Coldplay",
+        "Laleh",
+        "Lars Winnerbäck",
+        "Beyoncé"
+      ],
+      "most_wished_songs": [
+        "Hozier - Take me to church",
+        "Broder Daniel - Shoreline",
+        "Kent - Utan dina andetag",
+        "Omi - Cheerleader",
+        "Ariana Grande - Break free",
+        "Håkan Hellström - Valborg",
+        "Queen - Bohemian Rapsody",
+        "The Pouges & Kirsty McColl - Fairytale of New York",
+        "Coldplay - Fix you",
+        "Avicii - The nights"
+      ],
+      "playlist_external_url": "https://open.spotify.com/playlist/0gaabp7KdRRa7JSlSkBRx1",
+      "playlist_name": "Musikhjälpen 2014",
+      "playlist_id": "0gaabp7KdRRa7JSlSkBRx1",
+      "playlist_images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d00001e020ae4f4d42e4a09f3a29f64adab67616d00001e020e489f9cd0f28b3ca56b2191ab67616d00001e02deec12a28d1e336c5052e9aaab67616d00001e02e8b066f70c206551210d902b",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d00001e020ae4f4d42e4a09f3a29f64adab67616d00001e020e489f9cd0f28b3ca56b2191ab67616d00001e02deec12a28d1e336c5052e9aaab67616d00001e02e8b066f70c206551210d902b",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d00001e020ae4f4d42e4a09f3a29f64adab67616d00001e020e489f9cd0f28b3ca56b2191ab67616d00001e02deec12a28d1e336c5052e9aaab67616d00001e02e8b066f70c206551210d902b",
+          "width": 60
+        }
+      ],
+      "total_tracks": 1176,
+      "tracks_api_href": "https://api.spotify.com/v1/playlists/0gaabp7KdRRa7JSlSkBRx1/tracks"
+    },
+    {
+      "id": 10,
+      "year": "2013",
+      "collected": 28426046,
+      "startdatetime": "2013-12-09T21:30:00Z",
+      "enddatetime": "2013-12-15T21:00:00Z",
+      "theme": "Alla tjejer har rätt att överleva sin graviditet",
+      "city": "Göteborg",
+      "hosts": ["Emma Knyckare", "Kodjo Akolor", "Sarah Dawn Finer"],
+      "travelling_hosts": ["Bianca Kronlöf", "Robin Olin"],
+      "image": {
+        "src": "/2013.webp",
+        "copyright": "Foto: Mattias Ahlm/Sveriges Radio"
+      },
+      "most_wished_artists": [
+        "Håkan Hellström",
+        "Kent",
+        "Sarah Dawn Finer",
+        "Lars Winnerbäck",
+        "Bruce Springsteen",
+        "Timbuktu",
+        "Queen",
+        "Coldplay",
+        "Laleh",
+        "Beyoncé"
+      ],
+      "most_wished_songs": [
+        "Sarah Dawn Finers - Kärleksvisan",
+        "Kent - Utan Dina Andetag",
+        "Håkan Hellström - Valborg",
+        "Kartellen & Timbuktu - Svarta Duvor & Vissna Liljor",
+        "Ylvis - The Fox",
+        "Beyoncé - Run The World",
+        "Veronica Maggio & Håkan Hellström - Hela Huset",
+        "Håkan Hellström - Det Kommer Aldrig Va Över För Mig",
+        "One Direction - Story Of My Life",
+        "Queen - Bohemian Rhapsody"
+      ],
+      "playlist_external_url": "https://open.spotify.com/playlist/3gRFYY0gIhmwirYOX2htRi",
+      "playlist_name": "Musikhjälpen 2013",
+      "playlist_id": "3gRFYY0gIhmwirYOX2htRi",
+      "playlist_images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d00001e0260a98c3be4daffefe9014c7eab67616d00001e029a96414d8d655025194dc4c7ab67616d00001e029dcb7f938130fc270ab2da4aab67616d00001e02d03363d4cb070f431428da9a",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d00001e0260a98c3be4daffefe9014c7eab67616d00001e029a96414d8d655025194dc4c7ab67616d00001e029dcb7f938130fc270ab2da4aab67616d00001e02d03363d4cb070f431428da9a",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d00001e0260a98c3be4daffefe9014c7eab67616d00001e029a96414d8d655025194dc4c7ab67616d00001e029dcb7f938130fc270ab2da4aab67616d00001e02d03363d4cb070f431428da9a",
+          "width": 60
+        }
+      ],
+      "total_tracks": 1049,
+      "tracks_api_href": "https://api.spotify.com/v1/playlists/3gRFYY0gIhmwirYOX2htRi/tracks"
+    },
+    {
+      "id": 11,
+      "year": "2012",
+      "collected": 23301823,
+      "startdatetime": "2012-12-10T20:10:00Z",
+      "enddatetime": "2012-12-16T20:30:00Z",
+      "theme": "Barnen i slummen har rätt till rent vatten",
+      "city": "Malmö",
+      "hosts": ["Gina Dirawi", "Jason Diakité", "Kodjo Akolor"],
+      "travelling_hosts": [""],
+      "image": {
+        "src": "/2012.webp",
+        "copyright": "Foto: Mattias Ahlm/Sveriges Radio"
+      },
+      "most_wished_artists": [
+        "Timbuktu",
+        "Kent",
+        "Darin",
+        "Bruce Springsteen",
+        "Coldplay",
+        "Mumford & Sons",
+        "Mando Diao",
+        "Swedish House Mafia",
+        "Håkan Hellström",
+        "Miss L"
+      ],
+      "most_wished_songs": [
+        "Darin - Astrologen",
+        "Kent - Utan Dina andetag",
+        "Mando Diao - Strövtåg I hembygden ",
+        "The Pogues & Kirsty MacColl - Fairytale of new York",
+        "Timbuktu - Flickan & Kråkan",
+        "Swedish House Mafia - Don't You Worry Child",
+        "Darin - En apa som liknar dig",
+        "PSY - Gangnam style ",
+        "Stiftelsen - Vart jag än går",
+        "Miss Li - Här kommer natten" 
+      ],
+      "playlist_external_url": "https://open.spotify.com/playlist/33Dgi8DW63Hs8HKprJZzAQ",
+      "playlist_name": "Musikhjälpen 2012",
+      "playlist_id": "33Dgi8DW63Hs8HKprJZzAQ",
+      "playlist_images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d00001e025bf320530061fef5b0313f77ab67616d00001e026494a5592cca561ea52f6541ab67616d00001e026cfc57e5358c5e39e79bccbdab67616d00001e02781f6dd5abe91929df0314e3",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d00001e025bf320530061fef5b0313f77ab67616d00001e026494a5592cca561ea52f6541ab67616d00001e026cfc57e5358c5e39e79bccbdab67616d00001e02781f6dd5abe91929df0314e3",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d00001e025bf320530061fef5b0313f77ab67616d00001e026494a5592cca561ea52f6541ab67616d00001e026cfc57e5358c5e39e79bccbdab67616d00001e02781f6dd5abe91929df0314e3",
+          "width": 60
+        }
+      ],
+      "total_tracks": 956,
+      "tracks_api_href": "https://api.spotify.com/v1/playlists/33Dgi8DW63Hs8HKprJZzAQ/tracks"
+    },
+    {
+      "id": 12,
+      "year": "2011",
+      "collected": 18104362,
+      "startdatetime": "2011-12-12T18:00:00Z",
+      "enddatetime": "2011-12-18T18:11:00Z",
+      "theme": "Alla flickor har rätt att gå i skolan",
+      "city": "Göteborg",
+      "hosts": ["Gina Dirawi", "Jason Diakité", "Kodjo Akolor"],
+      "travelling_hosts": ["Daniel Adams-Ray", "Klara Zimmergren"],
+      "image": {
+        "src": "/2011.webp",
+        "copyright": "Foto: Mattias Ahlm/Sveriges Radio"
+      },
+      "most_wished_artists": [
+        "Timbuktu"
+      ],
+      "most_wished_songs": [
+        "Timbuktu - Flickan och kråkan",
+        "Laleh - Ängeln i rummet",
+        "Kent - Utan Dina Andetag",
+        "Queen - Bohemian Rhapsody",
+        "Bruce Springsteen - Born to Run",
+        "Håkan Hellström - Ramlar",
+        "Den Svenska Björnstammen - Vart jag mig i världen vänder",
+        "Beyoncé - Run the world (Girls)",
+        "Edward Sharpe & The Magnetic Zeroes - Home",
+        "The Pogues & Kirsty MacColl - Fairytale of New York"    
+      ],
+      "playlist_external_url": "https://open.spotify.com/playlist/6xrCAgfWQqWL8cVLX30HY8",
+      "playlist_name": "Musikhjälpen 2011",
+      "playlist_id": "6xrCAgfWQqWL8cVLX30HY8",
+      "playlist_images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d00001e021370b51d3cadf3107ef1a55eab67616d00001e0231548865f7c729290b96c794ab67616d00001e025ade9b4d547203c9061fc340ab67616d00001e025c8cfe4b2c4aa89c9c92108e",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d00001e021370b51d3cadf3107ef1a55eab67616d00001e0231548865f7c729290b96c794ab67616d00001e025ade9b4d547203c9061fc340ab67616d00001e025c8cfe4b2c4aa89c9c92108e",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d00001e021370b51d3cadf3107ef1a55eab67616d00001e0231548865f7c729290b96c794ab67616d00001e025ade9b4d547203c9061fc340ab67616d00001e025c8cfe4b2c4aa89c9c92108e",
+          "width": 60
+        }
+      ],
+      "total_tracks": 1110,
+      "tracks_api_href": "https://api.spotify.com/v1/playlists/6xrCAgfWQqWL8cVLX30HY8/tracks"
+    },
+    {
+      "id": 13,
+      "year": "2010",
+      "collected": 12236417,
+      "startdatetime": "2010-12-13T16:00:00Z",
+      "enddatetime": "2010-12-19T20:00:00Z",
+      "theme": "Barn är inte till salu",
+      "city": "Malmö",
+      "hosts": ["Jason Diakité", "Martina Thun", "Nour El Refai"],
+      "travelling_hosts": ["Ametist Azordegan", "Christer Lundberg"],
+      "image": {
+        "src": "/2010.webp",
+        "copyright": "Foto: Mattias Ahlm/Sveriges Radio"
+      },
+      "most_wished_artists": [
+        "Kent"
+      ],
+      "most_wished_songs": [
+        "The Pogues & Kirsty MacColl - Fairytale of New York"
+      ],
+      "playlist_external_url": "https://open.spotify.com/playlist/6ojKYzGjIfsetC0L1yOWe5",
+      "playlist_name": "Musikhjälpen 2010",
+      "playlist_id": "6ojKYzGjIfsetC0L1yOWe5",
+      "playlist_images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d00001e020f6ce5c138493ac768d9afc8ab67616d00001e022ee3bec0ef178a747c75bc80ab67616d00001e02a5a67d6339be7fb3e069cb5aab67616d00001e02d0ccf94a2d981db731f5dab8",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d00001e020f6ce5c138493ac768d9afc8ab67616d00001e022ee3bec0ef178a747c75bc80ab67616d00001e02a5a67d6339be7fb3e069cb5aab67616d00001e02d0ccf94a2d981db731f5dab8",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d00001e020f6ce5c138493ac768d9afc8ab67616d00001e022ee3bec0ef178a747c75bc80ab67616d00001e02a5a67d6339be7fb3e069cb5aab67616d00001e02d0ccf94a2d981db731f5dab8",
+          "width": 60
+        }
+      ],
+      "total_tracks": 1172,
+      "tracks_api_href": "https://api.spotify.com/v1/playlists/6ojKYzGjIfsetC0L1yOWe5/tracks"
+    },
+    {
+      "id": 14,
+      "year": "2009",
+      "collected": 5748442,
+      "startdatetime": "2009-12-14T17:00:00Z",
+      "enddatetime": "2009-12-20T17:00:00Z",
+      "theme": "Din musik stoppar malaria",
+      "city": "Göteborg",
+      "hosts": ["Ametist Azordegan", "Christer Lundberg", "Jason Diakité"],
+      "travelling_hosts": ["Ehsan Noroozi", "Kitty Jutbring"],
+      "image": {
+        "src": "/2009.webp",
+        "copyright": "Foto: Sveriges Radio"
+      },
+      "most_wished_artists": ["Information is missing"],
+      "most_wished_songs": [
+        "Kent - Utan dina andetag",
+        "Journey - Don't stop believin'",
+        "Håkan Hellström - Känn ingen sorg för mig Göteborg",
+        "Michael Jackson - Beat it",
+        "Metallica - Nothing else matters",
+        "Erik Grönwall - Higher",
+        "Queen - I want to break free",
+        "Regina Spektor - Laughing with",
+        "The Pogues & Kirsty MacColl - Fairytale of New York",
+        "David Bowie - Life on Mars"
+      ],
+      "playlist_external_url": "https://open.spotify.com/playlist/1K9cjebJRLFCei1AKzQ7gS",
+      "playlist_name": "Musikhjälpen 2009",
+      "playlist_id": "1K9cjebJRLFCei1AKzQ7gS",
+      "playlist_images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d00001e024c5fac07f80bad278dfbad1eab67616d00001e029cf4ac84b224a02f34d2e4f6ab67616d00001e02a43cd43ef4f3b2d5413b17f9ab67616d00001e02b988792975e8d9dc09cb15bb",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d00001e024c5fac07f80bad278dfbad1eab67616d00001e029cf4ac84b224a02f34d2e4f6ab67616d00001e02a43cd43ef4f3b2d5413b17f9ab67616d00001e02b988792975e8d9dc09cb15bb",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d00001e024c5fac07f80bad278dfbad1eab67616d00001e029cf4ac84b224a02f34d2e4f6ab67616d00001e02a43cd43ef4f3b2d5413b17f9ab67616d00001e02b988792975e8d9dc09cb15bb",
+          "width": 60
+        }
+      ],
+      "total_tracks": 1271,
+      "tracks_api_href": "https://api.spotify.com/v1/playlists/1K9cjebJRLFCei1AKzQ7gS/tracks"
+    },
+    {
+      "id": 15,
+      "year": "2008",
+      "collected": 3016247,
+      "startdatetime": "2008-12-13T19:10:00Z",
+      "enddatetime": "2008-12-19T19:10:00Z",
+      "theme": "67 miljoner flyktingar behöver din hjälp",
+      "city": "Malmö",
+      "hosts": ["Ehsan Noroozi", "Henrik Torehammar", "Kitty Jutbring"],
+      "travelling_hosts": ["Jason Diakité"],
+      "image": {
+        "src": "/2008.webp",
+        "copyright": "Foto: sverigesradio.se"
+      },
+      "most_wished_artists": ["Information is missing"],
+      "most_wished_songs": [
+        "Lady Gaga - Poker Face",
+        "Hives/ Cyndi Lauper - A Christmas Duel",
+        "Pink - So What",
+        "John Lennon - Imagine",
+        "Kevin Borg - With Every Bit Of Me",
+        "Agnes - Release Me",
+        "Usa For Africa - We Are The World",
+        "Katy Perry - Hot N Cold",
+        "Takida - Curly Sue",
+        "Killers - Human"
+      ],
+      "playlist_external_url": "https://open.spotify.com/playlist/5BtYVT2F5LEnHZj5SM5QrQ",
+      "playlist_name": "Musikhjälpen 2008",
+      "playlist_id": "5BtYVT2F5LEnHZj5SM5QrQ",
+      "playlist_images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d00001e02233e9214e557aa8f60e6df47ab67616d00001e022de2adc7ddb515f32350ab96ab67616d00001e023ff69945248b0a319be26188ab67616d00001e02ffa8157f3227a69f14d64e88",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d00001e02233e9214e557aa8f60e6df47ab67616d00001e022de2adc7ddb515f32350ab96ab67616d00001e023ff69945248b0a319be26188ab67616d00001e02ffa8157f3227a69f14d64e88",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d00001e02233e9214e557aa8f60e6df47ab67616d00001e022de2adc7ddb515f32350ab96ab67616d00001e023ff69945248b0a319be26188ab67616d00001e02ffa8157f3227a69f14d64e88",
+          "width": 60
+        }
+      ],
+      "total_tracks": 1022,
+      "tracks_api_href": "https://api.spotify.com/v1/playlists/5BtYVT2F5LEnHZj5SM5QrQ/tracks"
+    }
+  ]
+}
