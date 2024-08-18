@@ -66,20 +66,24 @@ const NavMenu = () => {
           />
         </Flex>
         <Flex flexDir="column" align="center">
-          <Button
-            bg="none"
-            fontSize="xl"
-            onClick={() => setDisplayMenu("none")}
-          >
-            Years
-          </Button>
-          <Button
-            bg="none"
-            fontSize="xl"
-            onClick={() => setDisplayMenu("none")}
-          >
-            Statistics
-          </Button>
+          <NavLink to="/years">
+            <Button
+              bg="none"
+              fontSize="xl"
+              onClick={() => setDisplayMenu("none")}
+            >
+              Years
+            </Button>
+          </NavLink>
+          <NavLink to="/statistics">
+            <Button
+              bg="none"
+              fontSize="xl"
+              onClick={() => setDisplayMenu("none")}
+            >
+              Statistics
+            </Button>
+          </NavLink>
         </Flex>
       </Flex>
     </Flex>

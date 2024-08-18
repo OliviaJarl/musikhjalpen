@@ -5,7 +5,7 @@ export function Footer() {
     <Center>
       <footer style={{ marginTop: "auto" }}>
         <VStack margin={{ base: "20px", md: "40px", lg: "60px" }}>
-          <Text align="center">Musikhjälpen statistics, 2024</Text>
+          <Text align="center">MHStats, 2024</Text>
           <Text align="center">
             Song lists from the{" "}
             <Link

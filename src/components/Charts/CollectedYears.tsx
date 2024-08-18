@@ -12,23 +12,28 @@ import data from "../../../public/data/musikhjalpenYears.json";
 const CollectedYears = () => {
   const years: MusikhjalpenYear[] = data.years;
   const yearsReversed = [...years].reverse();
+  const formatYAxis = (tickItem: number) => {
+    return `${(tickItem / 1_000_000).toFixed(1)} MSEK`;
+  };
 
   return (
-    <Box w="80%" h="500px" >
+    <Box w={{ base: "100%", md: "80%" }} h="500px">
       <ResponsiveContainer width="100%" height="100%">
         <LineChart
           data={yearsReversed}
           margin={{
             top: 5,
-            right: 30,
-            left: 20,
+            right: 5,
+            left: 0,
             bottom: 5,
           }}
         >
           <XAxis dataKey="year" />
           <YAxis
             dataKey="collected"
-            tick={{ fontSize: 14 }} // Minska fontstorleken
+            tick={{ fontSize: 12 }}
+            tickFormatter={formatYAxis}
+            width={80}
           />
           <Tooltip />
           <Line type="monotone" dataKey="collected" stroke="#159E80" />
