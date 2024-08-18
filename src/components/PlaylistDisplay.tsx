@@ -4,7 +4,7 @@ interface Props {
   id: string;
   externalURL: string;
 }
-const PlaylistDisplay = ({ id, externalURL }: Props) => {
+const PlaylistDisplay = ({ id }: Props) => {
   return (
     <>
       <Box
