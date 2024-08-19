@@ -17,13 +17,13 @@ const YearInfo = ({ data }: { data: MusikhjalpenYear }) => {
   return (
     <Center
       marginTop={{ base: "20px", sm: "40px", lg: "70px" }}
-      marginLeft={{base: "20px", md: "40px", lg: "30px", xl: "100px"}}
-      marginRight={{ base: "20px", md: "40px", lg: "30px", xl: "100px" }}
+      marginLeft={{base: "0px", md: "40px", lg: "30px", xl: "100px"}}
+      marginRight={{ base: "0px", md: "40px", lg: "30px", xl: "100px" }}
       marginBottom={{ base: "20px", sm: "40px", lg: "70px" }}
       gap={{ base: "5px", md: "30px" }}
       flexDir={{ base: "column", lg: "row" }}
     >
-      <VStack w={{ base: "100%", md: "90%", lg: "800px", xl: "50%" }} alignItems="left" maxW={{xl: "800px"}}>
+      <VStack w={{ base: "100%", md: "90%", lg: "800px", xl: "50%" }} alignItems="left" maxW={{xl: "800px"}} >
         <Image
           alt={"Thumbnail for the project "}
           src={data.image.src}
@@ -32,8 +32,8 @@ const YearInfo = ({ data }: { data: MusikhjalpenYear }) => {
         <Text>{data.image.copyright}</Text>
       </VStack>
       <TableContainer whiteSpace="normal" >
-        <Table variant="unstyled">
-          <Tbody fontSize="lg">
+        <Table variant="unstyled" >
+          <Tbody fontSize="lg" >
             <Tr>
               <Td
                 colSpan={2}
@@ -42,7 +42,7 @@ const YearInfo = ({ data }: { data: MusikhjalpenYear }) => {
               >{`Musikhjälpen ${data.year}`}</Td>
             </Tr>
             <Tr>
-              <Td colSpan={2} fontStyle="italic">
+              <Td colSpan={2} fontStyle="italic" textAlign={{base: "center", md: "left"}}>
                 {data.theme}
               </Td>
             </Tr>
