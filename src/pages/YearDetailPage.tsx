@@ -5,14 +5,15 @@ import { Center, Flex, Heading, VStack, Text } from "@chakra-ui/react";
 import YearInfo from "../components/YearDetailPage/YearInfo";
 import PlaylistDisplay from "../components/PlaylistDisplay";
 import WishedTrack from "../components/YearDetailPage/WishedTrack";
-import BarChartTracks from "../components/Charts/BarChartTracks";
+import HorizontalBarChart from "../components/Charts/HorizontalBarChart";
+import TrackLabel from "../components/Charts/TrackLabel";
+import ArtistLabel from "../components/Charts/ArtistLabel";
 import {
   sideMargins,
   bottomMarginHeading,
   bottomMarginSection,
 } from "../constants";
 import WishedArtist from "../components/YearDetailPage/WishedArtist";
-import BarChartArtists from "../components/Charts/BarChartArtists";
 import {
   fetchTrackData,
   getSortedTracks,
@@ -61,7 +62,9 @@ const YearDetailPage = () => {
         Most played songs
       </Heading>
       <Center marginBottom={bottomMarginSection}>
-        <BarChartTracks data={trackData} />
+        <HorizontalBarChart data={trackData}>
+          {(track) => <TrackLabel track={track} />}
+        </HorizontalBarChart>
       </Center>
       <Flex
         marginBottom={bottomMarginSection}
@@ -92,8 +95,10 @@ const YearDetailPage = () => {
       <Heading fontSize="xl" marginBottom={bottomMarginHeading}>
         Most played artists
       </Heading>
-      <Center>
-        <BarChartArtists data={artistData} />
+      <Center marginBottom={bottomMarginSection}>
+        <HorizontalBarChart data={artistData}>
+          {(artist) => <ArtistLabel artist={artist} />}
+        </HorizontalBarChart>
       </Center>
       <Flex
         flexDir={{ base: "column", md: "row" }}

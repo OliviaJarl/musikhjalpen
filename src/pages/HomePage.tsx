@@ -14,8 +14,10 @@ import {
   sortArtistsByCount,
   fetchTracksAllYears,
 } from "../components/Charts/fetchAndProcessFunctions";
-import BarChartArtists from "../components/Charts/BarChartArtists";
-import BarChartTracks from "../components/Charts/BarChartTracks";
+
+import HorizontalBarChart from "../components/Charts/HorizontalBarChart";
+import TrackLabel from "../components/Charts/TrackLabel";
+import ArtistLabel from "../components/Charts/ArtistLabel";
 //import StarBackground from "../components/StarBackground";
 
 const HomePage = () => {
@@ -46,20 +48,24 @@ const HomePage = () => {
   }, []);
   return (
     <>
-      <Flex flexDir="column" margin={sideMargins}>
+      <Flex flexDir="column" marginLeft={sideMargins} marginRight={sideMargins}>
         <Landing />
         <TopYears />
         <Heading marginBottom={bottomMarginHeading} fontSize="xl">
           Top tracks of all years
         </Heading>
         <Center marginBottom={bottomMarginSection}>
-          <BarChartTracks data={trackData} />
+          <HorizontalBarChart data={trackData}>
+            {(track) => <TrackLabel track={track} />}
+          </HorizontalBarChart>
         </Center>
         <Heading marginBottom={bottomMarginHeading} fontSize="xl">
           Top artists of all years
         </Heading>
-        <Center>
-          <BarChartArtists data={artistData} />
+        <Center marginBottom={bottomMarginSection}>
+          <HorizontalBarChart data={artistData}>
+            {(artist) => <ArtistLabel artist={artist} />}
+          </HorizontalBarChart>
         </Center>
       </Flex>
     </>

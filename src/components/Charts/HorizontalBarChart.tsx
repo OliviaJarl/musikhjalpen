@@ -1,23 +1,25 @@
 import { Box, Table, Tbody, Td, Tr, HStack } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import TrackLabel from "./TrackLabel";
 
-interface Props {
-  data: TrackPlot[];
+
+interface Props<T> {
+  data: T[];
+  children: (item: T) => React.ReactNode;
 }
 
-const BarChartTracks = ({ data }: Props) => {
-  const maxCount = Math.max(...data.map((track) => track.count));
-
-  
+const HorizontalBarChart = <T extends { name: string; count: number }>({
+  data,
+  children,
+}: Props<T>) => {
+  const maxCount = Math.max(...data.map((item) => item.count));
 
   return (
     <Table variant="unstyled" size="md" width={{ base: "100%", md: "90%" }}>
       <Tbody>
-        {data.map((track) => (
-          <Tr key={track.name}>
+        {data.map((item) => (
+          <Tr key={item.name}>
             <Td w={{ base: "20%" }} paddingLeft={0}>
-              <TrackLabel track={track} />
+              {children(item)}
             </Td>
             <Td paddingRight={0}>
               <HStack>
@@ -25,7 +27,7 @@ const BarChartTracks = ({ data }: Props) => {
                   as={motion.div}
                   initial={{ width: 0 }}
                   whileInView={{
-                    width: `${(track.count / maxCount) * 100}%`,
+                    width: `${(item.count / maxCount) * 100}%`,
                     transition: {
                       duration: 1,
                     },
@@ -36,7 +38,7 @@ const BarChartTracks = ({ data }: Props) => {
                   borderRadius="md"
                 />
                 <Box as="span" ml={2}>
-                  {track.count}
+                  {item.count}
                 </Box>
               </HStack>
             </Td>
@@ -47,4 +49,4 @@ const BarChartTracks = ({ data }: Props) => {
   );
 };
 
-export default BarChartTracks;
+export default HorizontalBarChart;

@@ -309,6 +309,7 @@ interface Track {
   uri: string,
 }
 
+// PLOT TYPES
 interface TrackPlot {
   count: number;
   name: string;
@@ -322,4 +323,14 @@ interface ArtistPlot {
   count: number;
   name: string;
  external_url: string;
+}
+
+interface Host {
+  name: string;
+  count: number;
+}
+
+interface City {
+  name: string;
+  count: number;
 }
