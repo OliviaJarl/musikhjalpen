@@ -1,7 +1,7 @@
 import { useParams } from "react-router";
 import { useState, useEffect } from "react";
-import data from "../../public/data/musikhjalpenYears.json";
 import { Center, Flex, Heading, VStack, Text } from "@chakra-ui/react";
+import useData from "../state-management/useData";
 import YearInfo from "../components/YearDetailPage/YearInfo";
 import PlaylistDisplay from "../components/PlaylistDisplay";
 import HorizontalBarChart from "../components/Charts/HorizontalBarChart";
@@ -22,7 +22,8 @@ import {
 
 const YearDetailPage = () => {
   const { id } = useParams();
-  const currentYear: MusikhjalpenYear = data.years[Number(id)];
+  const {yearData} = useData();
+  const currentYear: MusikhjalpenYear = yearData[Number(id)];
 
   const [trackData, setTrackData] = useState<TrackPlot[]>([]);
   const [artistData, setArtistData] = useState<ArtistPlot[]>([]);

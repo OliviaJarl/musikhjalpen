@@ -96,3 +96,16 @@ export async function fetchTracksAllYears(): Promise<Track[]> {
 
   return allTracks;
 }
+
+export async function fetchYearData() : Promise<MusikhjalpenYear[]>{
+  try {
+    const response = await axios.get(`/data/musikhjalpenYears.json`);
+    const jsonData = response.data;
+    const years: MusikhjalpenYear[] = jsonData.years;
+    return years;
+    
+  } catch (error) {
+    console.log(`Error loading data for the year:`, error);
+    return [];
+  }
+}

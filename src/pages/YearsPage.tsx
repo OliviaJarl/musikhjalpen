@@ -1,9 +1,9 @@
 import YearCard from "../components/YearCard";
-import data from "../../public/data/musikhjalpenYears.json";
 import { Box, SimpleGrid } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { sideMargins } from "../constants";
 import Location from "../components/Location";
+import useData from "../state-management/useData";
 
 const YearsPage = () => {
   const container = {
@@ -16,7 +16,7 @@ const YearsPage = () => {
     },
   };
 
-  const musikhjalpenArray: MusikhjalpenYear[] = data.years;
+  const {yearData} = useData();
 
   return (
     <Box marginLeft={sideMargins} marginRight={sideMargins} marginTop={{base: "20px", md: "50px", lg: "70px"}}>
@@ -30,9 +30,9 @@ const YearsPage = () => {
         whileInView="show"
         viewport={{ once: true }}
       >
-        {musikhjalpenArray.map((yearData, index) => (
-          <YearCard key={index} data={yearData}>
-            <Location location={yearData.city}/>
+        {yearData.map((year, index) => (
+          <YearCard key={index} data={year}>
+            <Location location={year.city}/>
           </YearCard>
         ))}
       </SimpleGrid>

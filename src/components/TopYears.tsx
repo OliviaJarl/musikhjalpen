@@ -1,6 +1,6 @@
 import { Heading, SimpleGrid } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import data from "../../public/data/musikhjalpenYears.json";
+import useData from "../state-management/useData";
 import { bottomMarginSection, bottomMarginHeading } from "../constants";
 import YearCard from "./YearCard";
 import Collected from "./Collected";
@@ -15,8 +15,8 @@ const TopYears = () => {
       },
     },
   };
-  const years: MusikhjalpenYear[] = data.years;
-  const sortedYears = [...years].sort((a, b) => b.collected - a.collected);
+  const { yearData } = useData();
+  const sortedYears = [...yearData].sort((a, b) => b.collected - a.collected);
 
   return (
     <>

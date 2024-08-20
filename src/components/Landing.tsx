@@ -1,12 +1,11 @@
 import { Center, Text } from "@chakra-ui/react";
 import CountUp from "react-countup";
-//import StarBackground from "./StarBackground";
-import data from "../../public/data/musikhjalpenYears.json";
+import useData from "../state-management/useData";
 
 const Landing = () => {
-  const years: MusikhjalpenYear[] = data.years;
+  const {yearData} = useData();
   let sum = 0;
-  years.map((year) => (sum += year.collected));
+  yearData.map((year) => (sum += year.collected));
 
   return (
     <Center

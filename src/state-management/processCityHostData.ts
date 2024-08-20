@@ -1,9 +1,7 @@
-import data from "../../public/data/musikhjalpenYears.json";
-
-export function processCityData() : City[] {
+export function processCityData(data: MusikhjalpenYear[]) : City[] {
     const cityCountMap = new Map<string, number>();
     
-    data.years.forEach((year: MusikhjalpenYear) => {
+    data.forEach((year: MusikhjalpenYear) => {
     const currentCity = year.city;
     if (cityCountMap.has(currentCity)) {
       cityCountMap.set(currentCity, cityCountMap.get(currentCity)! + 1);
@@ -26,9 +24,9 @@ export function processCityData() : City[] {
 }
 
 
-export function processHostData() : Host[] {
+export function processHostData(data: MusikhjalpenYear[]) : Host[] {
   const hostCountMap = new Map<string, number>();
-  data.years.forEach((year: MusikhjalpenYear) => {
+  data.forEach((year: MusikhjalpenYear) => {
     year.hosts.forEach((host: string) => {
       if (hostCountMap.has(host)) {
         hostCountMap.set(host, hostCountMap.get(host)! + 1);

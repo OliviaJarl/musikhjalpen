@@ -12,13 +12,13 @@ import {
   processCityData,
   processHostData,
 } from "../state-management/processCityHostData";
-import useAllTracksArtists from "../state-management/useAllTracksArtists";
+import useData from "../state-management/useData";
 
 const StatisticsPage = () => {
-  const { trackData, artistData } = useAllTracksArtists();
+  const { trackData, artistData, yearData } = useData();
 
-  const cityData = useMemo(() => processCityData(), []);
-  const hostData = useMemo(() => processHostData(), []);
+  const cityData = useMemo(() => processCityData(yearData), [yearData]);
+  const hostData = useMemo(() => processHostData(yearData), [yearData]);
 
   return (
     <>

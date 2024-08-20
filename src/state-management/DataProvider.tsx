@@ -1,19 +1,27 @@
-import { useState, useEffect, ReactNode } from 'react';
-import AllTracksAndArtistContext from './AllTracksArtistsContext';
-import { artistOccurence, fetchTracksAllYears, getSortedTracks, sortArtistsByCount, trackOccurrence } from './fetchAndProcessFunctions';
-
+import { useState, useEffect, ReactNode } from "react";
+import DataContext from "./DataContext";
+import {
+  artistOccurence,
+  fetchTracksAllYears,
+  getSortedTracks,
+  sortArtistsByCount,
+  trackOccurrence,
+  fetchYearData
+} from "./fetchAndProcessFunctions";
 
 interface Props {
   children: ReactNode;
 }
 
-const AllTracksArtistsProvider = ({children} : Props) => {
+const DataProvider = ({ children }: Props) => {
   const [trackData, setTrackData] = useState<TrackPlot[]>([]);
   const [artistData, setArtistData] = useState<ArtistPlot[]>([]);
+  const [yearData, setYearData] = useState<MusikhjalpenYear[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
       const tracks: Track[] = await fetchTracksAllYears();
+      const years: MusikhjalpenYear[] = await fetchYearData();
 
       const trackCount = trackOccurrence(tracks);
       const artistCount = artistOccurence(tracks);
@@ -29,14 +37,20 @@ const AllTracksArtistsProvider = ({children} : Props) => {
       if (sortedArtists) {
         setArtistData(sortedArtists);
       }
+      if (years) {
+        setYearData(years);
+      }
     };
     fetchData();
   }, []);
   return (
-    <AllTracksAndArtistContext.Provider value={{trackData, artistData}}>{children}</AllTracksAndArtistContext.Provider>
-  )
-}
+    <DataContext.Provider value={{ trackData, artistData, yearData }}>
+      {children}
+    </DataContext.Provider>
+  );
+};
 
-export default AllTracksArtistsProvider
+export default DataProvider;
+
 
 

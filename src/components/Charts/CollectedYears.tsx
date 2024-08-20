@@ -7,11 +7,11 @@ import {
   YAxis,
 } from "recharts";
 import { Box } from "@chakra-ui/react";
-import data from "../../../public/data/musikhjalpenYears.json";
+import useData from "../../state-management/useData";
 
 const CollectedYears = () => {
-  const years: MusikhjalpenYear[] = data.years;
-  const yearsReversed = [...years].reverse();
+  const {yearData} = useData();
+  const yearsReversed = [...yearData].reverse();
   const formatYAxis = (tickItem: number) => {
     return `${(tickItem / 1_000_000).toFixed(1)} MSEK`;
   };

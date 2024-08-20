@@ -8,10 +8,10 @@ import {
 } from "../constants";
 import HorizontalBarChart from "../components/Charts/HorizontalBarChart";
 import ChartLabel from "../components/Charts/ChartLabel";
-import useAllTracksArtists from "../state-management/useAllTracksArtists";
+import useData from "../state-management/useData";
 
 const HomePage = () => {
-  const { trackData, artistData } = useAllTracksArtists();
+  const { trackData, artistData } = useData();
   return (
     <>
       <Flex flexDir="column" marginLeft={sideMargins} marginRight={sideMargins}>
@@ -28,7 +28,7 @@ const HomePage = () => {
         <Heading marginBottom={bottomMarginHeading} fontSize="xl">
           Top artists of all years
         </Heading>
-        <Center marginBottom={bottomMarginSection}>
+        <Center>
           <HorizontalBarChart data={artistData}>
             {(artist) => <ChartLabel data={artist} />}
           </HorizontalBarChart>
