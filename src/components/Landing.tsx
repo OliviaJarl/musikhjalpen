@@ -18,10 +18,13 @@ const Landing = () => {
     >
       <Text fontSize={{ base: "5xl", md: "7xl" }} textAlign="center">
         <CountUp
-          start={2000000}
-          end={sum}
-          duration={6}
-          suffix=" SEK"
+          start={200}
+          end={sum / 1000000}
+          decimals={2}
+          delay={0.3}
+          duration={3}
+          suffix=" MSEK"
+          useEasing={true}
         />
       </Text>
       <Text
