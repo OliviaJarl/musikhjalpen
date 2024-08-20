@@ -4,16 +4,14 @@ import data from "../../public/data/musikhjalpenYears.json";
 import { Center, Flex, Heading, VStack, Text } from "@chakra-ui/react";
 import YearInfo from "../components/YearDetailPage/YearInfo";
 import PlaylistDisplay from "../components/PlaylistDisplay";
-import WishedTrack from "../components/YearDetailPage/WishedTrack";
 import HorizontalBarChart from "../components/Charts/HorizontalBarChart";
-import TrackLabel from "../components/Charts/TrackLabel";
-import ArtistLabel from "../components/Charts/ArtistLabel";
+import ChartLabel from "../components/Charts/ChartLabel";
+import WishedItem from "../components/YearDetailPage/WishedItem";
 import {
   sideMargins,
   bottomMarginHeading,
   bottomMarginSection,
 } from "../constants";
-import WishedArtist from "../components/YearDetailPage/WishedArtist";
 import {
   fetchTrackData,
   getSortedTracks,
@@ -63,7 +61,7 @@ const YearDetailPage = () => {
       </Heading>
       <Center marginBottom={bottomMarginSection}>
         <HorizontalBarChart data={trackData}>
-          {(track) => <TrackLabel track={track} />}
+          {(track) => <ChartLabel data={track} />}
         </HorizontalBarChart>
       </Center>
       <Flex
@@ -76,7 +74,7 @@ const YearDetailPage = () => {
             Most wished songs
           </Heading>
           {currentYear.most_wished_songs.map((song, index) => (
-            <WishedTrack key={index} track={song} index={index} />
+            <WishedItem key={index} name={song} index={index} />
           ))}
         </VStack>
         <VStack w={{ base: "100%", md: "30%" }} alignItems="flex-start">
@@ -87,7 +85,7 @@ const YearDetailPage = () => {
             <Text fontSize="xl">Information is missing</Text>
           ) : (
             currentYear.most_wished_artists.map((artist, index) => (
-              <WishedArtist key={index} artist={artist} index={index} />
+              <WishedItem key={index} name={artist} index={index} />
             ))
           )}
         </VStack>
@@ -95,9 +93,9 @@ const YearDetailPage = () => {
       <Heading fontSize="xl" marginBottom={bottomMarginHeading}>
         Most played artists
       </Heading>
-      <Center marginBottom={bottomMarginSection}>
+      <Center >
         <HorizontalBarChart data={artistData}>
-          {(artist) => <ArtistLabel artist={artist} />}
+          {(artist) => <ChartLabel data={artist} />}
         </HorizontalBarChart>
       </Center>
       <Flex
