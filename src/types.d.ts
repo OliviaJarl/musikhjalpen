@@ -320,6 +320,10 @@ interface TrackPlot {
   album_name: string;
 }
 
+interface PlotItem {
+  count: number;
+  name: string;
+}
 
 interface ArtistPlot {
   count: number;

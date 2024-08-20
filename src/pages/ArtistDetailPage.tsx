@@ -1,21 +1,18 @@
 import { useParams } from "react-router";
 import { useState, useEffect } from "react";
 import { Box, Center, Heading, Flex, Text } from "@chakra-ui/react";
-//import TrackInfo from "../components/TrackDetailPage/TrackInfo";
 import {
   bottomMarginSection,
   bottomMarginHeading,
   sideMargins,
 } from "../constants";
 import { fetchTrackData } from "../state-management/fetchAndProcessFunctions";
-//import useData from "../state-management/useData";
-//import VerticalBarChart from "../components/Charts/VerticalBarChart";
+import VerticalBarChart from "../components/Charts/VerticalBarChart";
+
 const ArtistDetailPage = () => {
   const { id } = useParams<{ id?: string }>();
-
-  const [artistCountPerYear, setArtistCountPerYear] = useState<
-    Map<string, number>
-  >(new Map());
+  const [artistCountPerYear, setArtistCountPerYear] = useState<PlotItem[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,9 +20,11 @@ const ArtistDetailPage = () => {
         (2008 + index).toString()
       );
 
-      const artistCountMap = new Map<string, number>(
-        years.map((year) => [year, 0])
-      );
+      // Initialize array of PlotItem objects with year and count set to 0
+      const artistCountArray: PlotItem[] = years.map((year) => ({
+        name: year,
+        count: 0,
+      }));
 
       for (const year of years) {
         const tracks: Track[] = await fetchTrackData(year);
@@ -33,16 +32,24 @@ const ArtistDetailPage = () => {
         for (const track of tracks) {
           for (const artist of track.artists) {
             if (id === artist.id) {
-              const currentCount = artistCountMap.get(id) || 0;
-              artistCountMap.set(year, currentCount + 1);
+              const yearItem = artistCountArray.find(
+                (item) => item.name === year
+              );
+              if (yearItem) {
+                yearItem.count += 1;
+              }
             }
           }
         }
       }
-      setArtistCountPerYear(artistCountMap);
+
+      setArtistCountPerYear(artistCountArray);
+      setIsLoading(false);
     };
 
-    fetchData();
+    if (id) {
+      fetchData();
+    }
   }, [id]);
 
   if (!id) {
@@ -70,7 +77,13 @@ const ArtistDetailPage = () => {
         <Heading marginBottom={bottomMarginHeading} fontSize="xl">
           Number of plays each year
         </Heading>
-        <Center marginBottom={bottomMarginSection}></Center>
+        <Center h="400px">
+          {isLoading ? (
+            <Text>Loading...</Text>
+          ) : (
+            <VerticalBarChart data={artistCountPerYear} />
+          )}
+        </Center>
       </Flex>
     </>
   );

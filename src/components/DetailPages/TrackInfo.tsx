@@ -11,12 +11,19 @@ import {
   Tr,
   VStack,
 } from "@chakra-ui/react";
-import { formatNames } from "../formatNames";
+import { Link as RouterLink } from "react-router-dom";
+import { Fragment } from "react"; // Import Fragment
 
 interface Props {
   data: TrackPlot;
 }
+
 const TrackInfo = ({ data }: Props) => {
+  const artistArray: { id: string; name: string }[] = [];
+  data.artists.forEach((artist) =>
+    artistArray.push({ id: artist.id, name: artist.name })
+  );
+
   return (
     <Center
       marginTop={{ base: "20px", sm: "40px", lg: "70px" }}
@@ -27,7 +34,7 @@ const TrackInfo = ({ data }: Props) => {
       flexDir={{ base: "column", lg: "row" }}
     >
       <VStack
-        w={{ base: "100%", md: "90%", lg: "400px", xl: "30%" }}
+        w={{ base: "100%", sm: "90%", md: "70%", lg: "400px", xl: "30%" }}
         alignItems="left"
         maxW={{ xl: "800px" }}
       >
@@ -46,11 +53,11 @@ const TrackInfo = ({ data }: Props) => {
                 colSpan={2}
                 textAlign={{ base: "center", md: "left" }}
                 fontSize={{
-                  base: "2xl",
-                  sm: "3xl",
-                  md: "4xl",
-                  lg: "4xl",
-                  xl: "5xl",
+                  base: "lg",
+                  sm: "xl",
+                  md: "2xl",
+                  lg: "2xl",
+                  xl: "3xl",
                 }}
               >
                 {data.name}
@@ -60,7 +67,16 @@ const TrackInfo = ({ data }: Props) => {
               <Td fontWeight="bold" verticalAlign="top">
                 Artists
               </Td>
-              <Td>{formatNames(data.artists.map((artist) => artist.name))}</Td>
+              <Td>
+                {data.artists.map((artist, index) => (
+                  <Fragment key={artist.id}>
+                    <RouterLink to={`/artists/${artist.id}`}>
+                      {artist.name}
+                    </RouterLink>
+                    {index < data.artists.length - 1 && ", "}
+                  </Fragment>
+                ))}
+              </Td>
             </Tr>
             <Tr>
               <Td fontWeight="bold" verticalAlign="top">

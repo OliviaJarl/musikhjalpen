@@ -9,9 +9,8 @@ import {
   Tr,
   VStack,
 } from "@chakra-ui/react";
-import { hostsString } from "./hostsString";
 import { dateString } from "./dateString";
-import { travelingHostsString } from "./travelingHostsString";
+import { formatNames } from "./formatNames";
 
 const YearInfo = ({ data }: { data: MusikhjalpenYear }) => {
   return (
@@ -41,7 +40,7 @@ const YearInfo = ({ data }: { data: MusikhjalpenYear }) => {
             <Tr>
               <Td
                 colSpan={2}
-                textAlign={{ base: "center", md: "left" }}
+                textAlign={{ base: "center", lg: "left" }}
                 fontSize={{
                   base: "2xl",
                   sm: "3xl",
@@ -70,7 +69,7 @@ const YearInfo = ({ data }: { data: MusikhjalpenYear }) => {
               <Td fontWeight="bold" verticalAlign="top">
                 Hosts
               </Td>
-              <Td>{hostsString(data.hosts)}</Td>
+              <Td>{formatNames(data.hosts)}</Td>
             </Tr>
             <Tr>
               <Td fontWeight="bold" verticalAlign="top">
@@ -78,7 +77,7 @@ const YearInfo = ({ data }: { data: MusikhjalpenYear }) => {
                   ? "Traveling host"
                   : "Traveling hosts"}
               </Td>
-              <Td>{travelingHostsString(data.travelling_hosts)}</Td>
+              <Td>{formatNames(data.travelling_hosts)}</Td>
             </Tr>
             <Tr>
               <Td fontWeight="bold" verticalAlign="top">

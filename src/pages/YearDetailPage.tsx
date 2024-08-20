@@ -2,11 +2,11 @@ import { useParams } from "react-router";
 import { useState, useEffect } from "react";
 import { Center, Flex, Heading, VStack, Text } from "@chakra-ui/react";
 import useData from "../state-management/useData";
-import YearInfo from "../components/YearDetailPage/YearInfo";
+import YearInfo from "../components/DetailPages/YearInfo";
 import PlaylistDisplay from "../components/PlaylistDisplay";
 import HorizontalBarChart from "../components/Charts/HorizontalBarChart";
 import ChartLabel from "../components/Charts/ChartLabel";
-import WishedItem from "../components/YearDetailPage/WishedItem";
+import WishedItem from "../components/DetailPages/WishedItem";
 import {
   sideMargins,
   bottomMarginHeading,
