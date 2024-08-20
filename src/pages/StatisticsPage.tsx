@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Center, Heading, VStack, Text } from "@chakra-ui/react";
+import { Center, Heading, VStack } from "@chakra-ui/react";
 import {
   sideMargins,
   bottomMarginHeading,
@@ -7,8 +7,7 @@ import {
 } from "../constants";
 import CollectedYears from "../components/Charts/CollectedYears";
 import HorizontalBarChart from "../components/Charts/HorizontalBarChart";
-import ArtistLabel from "../components/Charts/ArtistLabel";
-import TrackLabel from "../components/Charts/TrackLabel";
+import ChartLabel from "../components/Charts/ChartLabel";
 import {
   getSortedTracks,
   trackOccurrence,
@@ -62,11 +61,7 @@ const StatisticsPage = () => {
         </Heading>
         <Center marginBottom={bottomMarginSection}>
           <HorizontalBarChart data={processCityData()}>
-            {(city) => (
-              <VStack alignItems="flex-end" width="100%" textAlign="right">
-                <Text>{city.name}</Text>
-              </VStack>
-            )}
+            {(city) => <ChartLabel data={city} />}
           </HorizontalBarChart>
         </Center>
         <Heading marginBottom={bottomMarginHeading} fontSize="xl">
@@ -74,11 +69,7 @@ const StatisticsPage = () => {
         </Heading>
         <Center marginBottom={bottomMarginSection}>
           <HorizontalBarChart data={processHostData()}>
-            {(host) => (
-              <VStack alignItems="flex-end" width="100%" textAlign="right">
-                <Text>{host.name}</Text>
-              </VStack>
-            )}
+            {(host) => <ChartLabel data={host} />}
           </HorizontalBarChart>
         </Center>
         <Heading marginBottom={bottomMarginHeading} fontSize="xl">
@@ -86,7 +77,7 @@ const StatisticsPage = () => {
         </Heading>
         <Center marginBottom={bottomMarginSection}>
           <HorizontalBarChart data={trackData}>
-            {(track) => <TrackLabel track={track} />}
+            {(track) => <ChartLabel data={track} />}
           </HorizontalBarChart>
         </Center>
         <Heading marginBottom={bottomMarginHeading} fontSize="xl">
@@ -94,7 +85,7 @@ const StatisticsPage = () => {
         </Heading>
         <Center>
           <HorizontalBarChart data={artistData}>
-            {(artist) => <ArtistLabel artist={artist} />}
+            {(artist) => <ChartLabel data={artist} />}
           </HorizontalBarChart>
         </Center>
       </VStack>

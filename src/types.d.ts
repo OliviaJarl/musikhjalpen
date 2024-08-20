@@ -314,7 +314,7 @@ interface TrackPlot {
   count: number;
   name: string;
   artists: SimplifiedArtistObject[];
-  track_url: string;
+  external_url: string;
   album_images: string;
 }
 
@@ -322,7 +322,7 @@ interface TrackPlot {
 interface ArtistPlot {
   count: number;
   name: string;
- external_url: string;
+  external_url: string;
 }
 
 interface Host {

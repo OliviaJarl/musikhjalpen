@@ -28,7 +28,7 @@ export function trackOccurrence(tracks: Track[]): Map<string, TrackPlot> {
         count: 1,
         name: track.name,
         artists: track.artists,
-        track_url: track.external_url,
+        external_url: track.external_url,
         album_images: track.album_images.length > 0 ? track.album_images[0].url : ''
       });
     }

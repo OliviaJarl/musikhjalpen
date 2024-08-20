@@ -12,7 +12,7 @@ const TrackLabel = ({ track }: Props) => {
       gap={3}
     >
       <VStack alignItems="flex-end" width="100%" textAlign="right"> 
-        <Link href={track.track_url} isExternal >
+        <Link href={track.external_url} isExternal >
           {track.name}
         </Link>
         <Link href={track.artists[0].external_urls.spotify} isExternal >
