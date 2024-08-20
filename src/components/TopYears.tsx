@@ -1,4 +1,4 @@
-import { Heading, SimpleGrid } from "@chakra-ui/react";
+import { Center, Heading, SimpleGrid } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import useData from "../state-management/useData";
 import { bottomMarginSection, bottomMarginHeading } from "../constants";
@@ -15,15 +15,25 @@ const TopYears = () => {
       },
     },
   };
+
   const { yearData } = useData();
+
+  if (!yearData || yearData.length === 0) {
+    return (
+      <>
+        <Heading fontSize="xl" marginBottom={bottomMarginHeading}>
+          Top years
+        </Heading>
+        <Center height="300px">Loading...</Center>
+      </>
+    );
+  }
+
   const sortedYears = [...yearData].sort((a, b) => b.collected - a.collected);
 
   return (
     <>
-      <Heading
-        fontSize="xl"
-        marginBottom={bottomMarginHeading}
-      >
+      <Heading fontSize="xl" marginBottom={bottomMarginHeading}>
         Top years
       </Heading>
       <SimpleGrid
@@ -38,7 +48,9 @@ const TopYears = () => {
         viewport={{ once: true }}
       >
         {sortedYears.slice(0, 4).map((year, index) => (
-          <YearCard data={year} key={index}><Collected money={year.collected} /></YearCard>
+          <YearCard data={year} key={index}>
+            <Collected money={year.collected} />
+          </YearCard>
         ))}
       </SimpleGrid>
     </>

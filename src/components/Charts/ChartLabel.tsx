@@ -1,4 +1,5 @@
-import { Flex, Image, Link, VStack, Text } from "@chakra-ui/react";
+import { Flex, Image, VStack, Text } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
 interface ChartLabelProps {
   data: TrackPlot | ArtistPlot | Host | City;
@@ -14,22 +15,18 @@ const ChartLabel = ({ data }: ChartLabelProps) => {
       <VStack alignItems="flex-end" width="100%" textAlign="right">
         {isTrackPlot(data) && (
           <>
-            <Link href={data.external_url} isExternal>
-              {data.name}
-            </Link>
-            <Link href={data.artists[0].external_urls.spotify} isExternal>
+            <Link to={`/tracks/${data.id}`}>{data.name}</Link>
+            <Link to={`/artists/${data.artists[0].id}`}>
               {data.artists[0].name}
             </Link>
           </>
         )}
 
         {isArtistPlot(data) && (
-          <Link href={data.external_url} isExternal>
-            {data.name}
-          </Link>
+          <Link to={`/artists/${data.id}`}>{data.name}</Link>
         )}
 
-        {isHost(data) && <Text>{data.name}</Text>}
+        {isHostOrCity(data) && <Text>{data.name}</Text>}
       </VStack>
 
       {isTrackPlot(data) && (
@@ -52,12 +49,18 @@ function isTrackPlot(
   return "artists" in data && "album_images" in data;
 }
 
-function isArtistPlot(data: TrackPlot | ArtistPlot | Host): data is ArtistPlot {
+function isArtistPlot(
+  data: TrackPlot | ArtistPlot | Host | City
+): data is ArtistPlot {
   return "external_url" in data && !("artists" in data);
 }
 
-function isHost(data: TrackPlot | ArtistPlot | Host): data is Host {
+function isHostOrCity(
+  data: TrackPlot | ArtistPlot | Host | City
+): data is Host | City {
   return !("external_url" in data) && !("artists" in data);
 }
 
 export default ChartLabel;
+
+// <Link href={data.artists[0].external_urls.spotify} isExternal>

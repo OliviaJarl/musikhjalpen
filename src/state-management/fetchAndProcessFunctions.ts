@@ -27,9 +27,11 @@ export function trackOccurrence(tracks: Track[]): Map<string, TrackPlot> {
       trackCount.set(track.id, {
         count: 1,
         name: track.name,
+        id: track.id,
         artists: track.artists,
         external_url: track.external_url,
-        album_images: track.album_images.length > 0 ? track.album_images[0].url : ''
+        album_images: track.album_images.length > 0 ? track.album_images[0].url : '',
+        album_name: track.album_name,
       });
     }
   });
@@ -61,6 +63,7 @@ export function artistOccurence(tracks: Track[]): Map<string, ArtistPlot> {
           artistCount.set(artist.id, {
             count: 1,
             name: artist.name,
+            id: artist.id,
             external_url: artist.external_urls.spotify
           });
         }

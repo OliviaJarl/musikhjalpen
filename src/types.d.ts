@@ -313,15 +313,18 @@ interface Track {
 interface TrackPlot {
   count: number;
   name: string;
+  id: string,
   artists: SimplifiedArtistObject[];
   external_url: string;
   album_images: string;
+  album_name: string;
 }
 
 
 interface ArtistPlot {
   count: number;
   name: string;
+  id: string;
   external_url: string;
 }
 
