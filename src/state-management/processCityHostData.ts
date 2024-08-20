@@ -1,5 +1,4 @@
-import data from "../../../public/data/musikhjalpenYears.json";
-
+import data from "../../public/data/musikhjalpenYears.json";
 
 export function processCityData() : City[] {
     const cityCountMap = new Map<string, number>();

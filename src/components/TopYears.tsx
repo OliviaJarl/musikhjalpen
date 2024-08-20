@@ -37,8 +37,8 @@ const TopYears = () => {
         whileInView="show"
         viewport={{ once: true }}
       >
-        {sortedYears.slice(0, 4).map((year) => (
-          <YearCard data={year} ><Collected money={year.collected} /></YearCard>
+        {sortedYears.slice(0, 4).map((year, index) => (
+          <YearCard data={year} key={index}><Collected money={year.collected} /></YearCard>
         ))}
       </SimpleGrid>
     </>

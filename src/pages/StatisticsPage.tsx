@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useMemo } from "react";
 import { Center, Heading, VStack } from "@chakra-ui/react";
 import {
   sideMargins,
@@ -9,43 +9,16 @@ import CollectedYears from "../components/Charts/CollectedYears";
 import HorizontalBarChart from "../components/Charts/HorizontalBarChart";
 import ChartLabel from "../components/Charts/ChartLabel";
 import {
-  getSortedTracks,
-  trackOccurrence,
-  artistOccurence,
-  sortArtistsByCount,
-  fetchTracksAllYears,
-} from "../components/Charts/fetchAndProcessFunctions";
-import {
   processCityData,
   processHostData,
-} from "../components/Charts/processCityHostData";
+} from "../state-management/processCityHostData";
+import useAllTracksArtists from "../state-management/useAllTracksArtists";
 
 const StatisticsPage = () => {
-  // Fetch and process relevant data needed for the track and artist bar charts
-  const [trackData, setTrackData] = useState<TrackPlot[]>([]);
-  const [artistData, setArtistData] = useState<ArtistPlot[]>([]);
+  const { trackData, artistData } = useAllTracksArtists();
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const tracks: Track[] = await fetchTracksAllYears();
-
-      const trackCount = trackOccurrence(tracks);
-      const artistCount = artistOccurence(tracks);
-
-      const sortedTracks = getSortedTracks(trackCount);
-      const sortedArtists = sortArtistsByCount(
-        Array.from(artistCount.values())
-      );
-
-      if (sortedTracks) {
-        setTrackData(sortedTracks);
-      }
-      if (sortedArtists) {
-        setArtistData(sortedArtists);
-      }
-    };
-    fetchData();
-  }, []);
+  const cityData = useMemo(() => processCityData(), []);
+  const hostData = useMemo(() => processHostData(), []);
 
   return (
     <>
@@ -60,7 +33,7 @@ const StatisticsPage = () => {
           Top cities
         </Heading>
         <Center marginBottom={bottomMarginSection}>
-          <HorizontalBarChart data={processCityData()}>
+          <HorizontalBarChart data={cityData}>
             {(city) => <ChartLabel data={city} />}
           </HorizontalBarChart>
         </Center>
@@ -68,7 +41,7 @@ const StatisticsPage = () => {
           Recurring hosts
         </Heading>
         <Center marginBottom={bottomMarginSection}>
-          <HorizontalBarChart data={processHostData()}>
+          <HorizontalBarChart data={hostData}>
             {(host) => <ChartLabel data={host} />}
           </HorizontalBarChart>
         </Center>

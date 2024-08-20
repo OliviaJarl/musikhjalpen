@@ -6,44 +6,12 @@ import {
   bottomMarginHeading,
   bottomMarginSection,
 } from "../constants";
-import { useEffect, useState } from "react";
-import {
-  getSortedTracks,
-  trackOccurrence,
-  artistOccurence,
-  sortArtistsByCount,
-  fetchTracksAllYears,
-} from "../components/Charts/fetchAndProcessFunctions";
-
 import HorizontalBarChart from "../components/Charts/HorizontalBarChart";
 import ChartLabel from "../components/Charts/ChartLabel";
+import useAllTracksArtists from "../state-management/useAllTracksArtists";
 
 const HomePage = () => {
-  // Fetch and process relevant data needed for the track and artist bar charts
-  const [trackData, setTrackData] = useState<TrackPlot[]>([]);
-  const [artistData, setArtistData] = useState<ArtistPlot[]>([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const tracks: Track[] = await fetchTracksAllYears();
-
-      const trackCount = trackOccurrence(tracks);
-      const artistCount = artistOccurence(tracks);
-
-      const sortedTracks = getSortedTracks(trackCount);
-      const sortedArtists = sortArtistsByCount(
-        Array.from(artistCount.values())
-      );
-
-      if (sortedTracks) {
-        setTrackData(sortedTracks);
-      }
-      if (sortedArtists) {
-        setArtistData(sortedArtists);
-      }
-    };
-    fetchData();
-  }, []);
+  const { trackData, artistData } = useAllTracksArtists();
   return (
     <>
       <Flex flexDir="column" marginLeft={sideMargins} marginRight={sideMargins}>

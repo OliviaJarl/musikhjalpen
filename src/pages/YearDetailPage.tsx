@@ -18,7 +18,7 @@ import {
   trackOccurrence,
   artistOccurence,
   sortArtistsByCount,
-} from "../components/Charts/fetchAndProcessFunctions";
+} from "../state-management/fetchAndProcessFunctions";
 
 const YearDetailPage = () => {
   const { id } = useParams();
@@ -93,7 +93,7 @@ const YearDetailPage = () => {
       <Heading fontSize="xl" marginBottom={bottomMarginHeading}>
         Most played artists
       </Heading>
-      <Center >
+      <Center>
         <HorizontalBarChart data={artistData}>
           {(artist) => <ChartLabel data={artist} />}
         </HorizontalBarChart>

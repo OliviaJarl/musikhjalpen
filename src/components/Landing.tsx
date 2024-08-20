@@ -11,10 +11,10 @@ const Landing = () => {
   return (
     <Center
       flexDir={"column"}
-      marginTop={{ base: "20px", sm: "40px", lg: "120px" }}
+      marginTop={{ base: "20px", sm: "40px", lg: "100px" }}
       marginLeft={{ base: "5px", sm: "15px", lg: "110px" }}
       marginRight={{ base: "5px", sm: "15px", lg: "110px" }}
-      marginBottom={{ base: "20px", sm: "40px", lg: "180px" }}
+      marginBottom={{ base: "20px", sm: "40px", lg: "130px" }}
     >
       <Text fontSize={{ base: "5xl", md: "7xl" }} textAlign="center">
         <CountUp
