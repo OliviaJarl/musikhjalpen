@@ -17,7 +17,6 @@ import {
 
 import HorizontalBarChart from "../components/Charts/HorizontalBarChart";
 import ChartLabel from "../components/Charts/ChartLabel";
-//import StarBackground from "../components/StarBackground";
 
 const HomePage = () => {
   // Fetch and process relevant data needed for the track and artist bar charts
