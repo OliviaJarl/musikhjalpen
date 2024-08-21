@@ -1,33 +1,38 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
-import { Center, Flex, Heading, Text, Spinner } from "@chakra-ui/react";
+import { Center, Flex, Heading, Text } from "@chakra-ui/react";
 import TrackInfo from "../components/DetailPages/TrackInfo";
 import {
   bottomMarginSection,
   bottomMarginHeading,
   sideMargins,
 } from "../constants";
-import useData from "../state-management/useData";
-import { fetchAndProcessTrackData } from "../state-management/fetchAndProcessFunctions";
+import {
+  fetchAndProcessTrackData,
+  fetchTracksAllYears,
+} from "../state-management/fetchAndProcessFunctions";
 import VerticalBarChart from "../components/Charts/VerticalBarChart";
+import Loading from "../components/Loading";
 
 const TrackDetailPage = () => {
   const [data, setData] = useState<PlotItem[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [currentTrack, setCurrentTrack] = useState<Track>();
+  const [isLocalLoading, setLocalLoading] = useState(true);
   const { id } = useParams<{ id?: string }>();
-  const { trackData } = useData();
-  const currentTrack = trackData.find((track) => track.id === id) as TrackPlot;
 
   useEffect(() => {
     const fetchData = async () => {
       if (!id) return;
       try {
         const trackCountData = await fetchAndProcessTrackData(id);
+        const tracks: Track[] = await fetchTracksAllYears();
+        const thisTrack = tracks.find((track) => track.id === id) as Track;
         setData(trackCountData);
+        setCurrentTrack(thisTrack);
       } catch (error) {
         console.log(error);
       } finally {
-        setIsLoading(false);
+        setLocalLoading(false);
       }
     };
     fetchData();
@@ -40,25 +45,32 @@ const TrackDetailPage = () => {
   return (
     <>
       <Flex flexDir="column" marginLeft={sideMargins} marginRight={sideMargins}>
-        <TrackInfo data={currentTrack} />
-        <Heading marginBottom={bottomMarginHeading} fontSize="xl">
-          Number of plays each year
-        </Heading>
-        <Center marginBottom={bottomMarginSection} h="400px">
-          {isLoading ? (
-            <Spinner />
-          ) : (
-            <VerticalBarChart data={data}>
-              {(item) =>
-                item.count > 0 ? (
-                  <Text fontSize={{ base: "sm", lg: "md" }}>{item.count}</Text>
-                ) : (
-                  <Text></Text>
-                )
-              }
-            </VerticalBarChart>
-          )}
-        </Center>
+        {isLocalLoading ? (
+          <Loading />
+        ) : (
+          <>
+            <TrackInfo
+              data={currentTrack}
+              total={Math.max(...data.map((item) => item.count))}
+            />
+            <Heading marginBottom={bottomMarginHeading} fontSize="xl">
+              Number of plays each year
+            </Heading>
+            <Center marginBottom={bottomMarginSection} h="400px">
+              <VerticalBarChart data={data}>
+                {(item) =>
+                  item.count > 0 ? (
+                    <Text fontSize={{ base: "sm", lg: "md" }}>
+                      {item.count}
+                    </Text>
+                  ) : (
+                    <Text></Text>
+                  )
+                }
+              </VerticalBarChart>
+            </Center>
+          </>
+        )}
       </Flex>
     </>
   );

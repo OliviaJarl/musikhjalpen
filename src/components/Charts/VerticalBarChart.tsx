@@ -15,7 +15,7 @@ const VerticalBarChart = <T extends { year: string; count: number }>({
   return (
     <HStack
       h="400px"
-      gap={{ base: 3, sm: 3, md: 0 }} 
+      gap={{ base: 3, sm: 3, md: 0 }}
       overflowX="auto"
       w="100%"
       justifyContent="center"
@@ -28,7 +28,7 @@ const VerticalBarChart = <T extends { year: string; count: number }>({
           alignItems="center"
           spacing={{ base: 2, md: 0 }}
         >
-          {children(item)} 
+          {children(item)}
           <Box
             bg="#159E80"
             w={{ base: "10px", sm: "15px", md: "20px" }}
@@ -44,7 +44,13 @@ const VerticalBarChart = <T extends { year: string; count: number }>({
           <Text
             transform={{ base: "rotate(-90deg)", md: "rotate(0deg)" }}
             marginTop={{ base: "20px", md: "4px" }}
-            w={{ base: "10px", sm: "15px", md: "42px", lg: "50px", xl: "60px" }}
+            w={{
+              base: "10px",
+              sm: "15px",
+              md: "42px",
+              lg: "50px",
+              xl: "60px",
+            }}
             whiteSpace="nowrap"
             textAlign={{ base: "left", md: "center" }}
             fontSize={{ base: "sm", lg: "md" }}

@@ -15,14 +15,15 @@ import { Link as RouterLink } from "react-router-dom";
 import { Fragment } from "react"; // Import Fragment
 
 interface Props {
-  data: TrackPlot;
+  data: Track | undefined;
+  total: number;
 }
 
-const TrackInfo = ({ data }: Props) => {
-  const artistArray: { id: string; name: string }[] = [];
-  data.artists.forEach((artist) =>
-    artistArray.push({ id: artist.id, name: artist.name })
-  );
+const TrackInfo = ({ data, total }: Props) => {
+
+  if (data === undefined) {
+    return <Text>Track not found</Text>;
+  }
 
   return (
     <Center
@@ -40,7 +41,7 @@ const TrackInfo = ({ data }: Props) => {
       >
         <Image
           alt={"Thumbnail for the project "}
-          src={data.album_images}
+          src={data.album_images[0].url}
           aspectRatio="1/1 auto"
         />
         <Text fontStyle="italic">Image from Spotify's API</Text>
@@ -88,7 +89,7 @@ const TrackInfo = ({ data }: Props) => {
               <Td fontWeight="bold" verticalAlign="top">
                 Played in total
               </Td>
-              <Td>{data.count} times</Td>
+              <Td>{total} times</Td>
             </Tr>
             <Tr>
               <Td fontWeight="bold" verticalAlign="top" colSpan={2}>
