@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
-import { Center, Flex, Heading, Text } from "@chakra-ui/react";
+import { Center, Flex, Heading, Text, Spinner } from "@chakra-ui/react";
 import TrackInfo from "../components/DetailPages/TrackInfo";
 import {
   bottomMarginSection,
@@ -21,11 +21,15 @@ const TrackDetailPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       if (!id) return;
-      const trackCountData = await fetchAndProcessTrackData(id);
-      setData(trackCountData);
-      setIsLoading(false);
+      try {
+        const trackCountData = await fetchAndProcessTrackData(id);
+        setData(trackCountData);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setIsLoading(false);
+      }
     };
-
     fetchData();
   }, [id]);
 
@@ -42,7 +46,7 @@ const TrackDetailPage = () => {
         </Heading>
         <Center marginBottom={bottomMarginSection} h="400px">
           {isLoading ? (
-            <Text>Loading...</Text>
+            <Spinner />
           ) : (
             <VerticalBarChart data={data}>
               {(item) =>

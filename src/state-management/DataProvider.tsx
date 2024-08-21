@@ -6,7 +6,7 @@ import {
   getSortedTracks,
   sortArtistsByCount,
   trackOccurrence,
-  fetchYearData
+  fetchYearData,
 } from "./fetchAndProcessFunctions";
 
 interface Props {
@@ -17,40 +17,46 @@ const DataProvider = ({ children }: Props) => {
   const [trackData, setTrackData] = useState<TrackPlot[]>([]);
   const [artistData, setArtistData] = useState<ArtistPlot[]>([]);
   const [yearData, setYearData] = useState<MusikhjalpenYear[]>([]);
+  const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
-      const tracks: Track[] = await fetchTracksAllYears();
-      const years: MusikhjalpenYear[] = await fetchYearData();
+      setLoading(true);
+      try {
+        const tracks: Track[] = await fetchTracksAllYears();
+        const years: MusikhjalpenYear[] = await fetchYearData();
 
-      const trackCount = trackOccurrence(tracks);
-      const artistCount = artistOccurence(tracks);
+        const trackCount = trackOccurrence(tracks);
+        const artistCount = artistOccurence(tracks);
 
-      const sortedTracks = getSortedTracks(trackCount);
-      const sortedArtists = sortArtistsByCount(
-        Array.from(artistCount.values())
-      );
+        const sortedTracks = getSortedTracks(trackCount);
+        const sortedArtists = sortArtistsByCount(
+          Array.from(artistCount.values())
+        );
 
-      if (sortedTracks) {
-        setTrackData(sortedTracks);
-      }
-      if (sortedArtists) {
-        setArtistData(sortedArtists);
-      }
-      if (years) {
-        setYearData(years);
+        if (sortedTracks) {
+          setTrackData(sortedTracks);
+        }
+        if (sortedArtists) {
+          setArtistData(sortedArtists);
+        }
+        if (years) {
+          setYearData(years);
+        }
+      } catch (error) {
+        console.error("Error fetching data", error);
+      } finally {
+        setLoading(false);
       }
     };
     fetchData();
   }, []);
+
   return (
-    <DataContext.Provider value={{ trackData, artistData, yearData }}>
+    <DataContext.Provider value={{ trackData, artistData, yearData, isLoading }}>
       {children}
     </DataContext.Provider>
   );
 };
 
 export default DataProvider;
-
-
-

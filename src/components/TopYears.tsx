@@ -1,7 +1,7 @@
-import { Center, Heading, SimpleGrid } from "@chakra-ui/react";
+import { SimpleGrid} from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import useData from "../state-management/useData";
-import { bottomMarginSection, bottomMarginHeading } from "../constants";
+import { bottomMarginSection } from "../constants";
 import YearCard from "./YearCard";
 import Collected from "./Collected";
 
@@ -18,24 +18,11 @@ const TopYears = () => {
 
   const { yearData } = useData();
 
-  if (!yearData || yearData.length === 0) {
-    return (
-      <>
-        <Heading fontSize="xl" marginBottom={bottomMarginHeading}>
-          Top years
-        </Heading>
-        <Center height="300px">Loading...</Center>
-      </>
-    );
-  }
 
   const sortedYears = [...yearData].sort((a, b) => b.collected - a.collected);
 
   return (
     <>
-      <Heading fontSize="xl" marginBottom={bottomMarginHeading}>
-        Top years
-      </Heading>
       <SimpleGrid
         columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}
         spacing={8}

@@ -1,6 +1,6 @@
 import { useParams } from "react-router";
 import { useState, useEffect } from "react";
-import { Box, Center, Heading, Flex, Text } from "@chakra-ui/react";
+import { Box, Center, Heading, Flex, Text, Spinner } from "@chakra-ui/react";
 import {
   bottomMarginSection,
   bottomMarginHeading,
@@ -17,9 +17,14 @@ const ArtistDetailPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       if (!id) return;
-      const artistCountData = await fetchAndProcessArtistData(id);
-      setArtistCountPerYear(artistCountData);
-      setIsLoading(false);
+      try {
+        const artistCountData = await fetchAndProcessArtistData(id);
+        setArtistCountPerYear(artistCountData);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setIsLoading(false);
+      }
     };
     fetchData();
   }, [id]);
@@ -51,7 +56,7 @@ const ArtistDetailPage = () => {
         </Heading>
         <Center marginBottom={bottomMarginSection} h="400px">
           {isLoading ? (
-            <Text>Loading...</Text>
+            <Spinner />
           ) : (
             <VerticalBarChart data={artistCountPerYear}>
               {(item) =>

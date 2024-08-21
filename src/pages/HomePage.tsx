@@ -9,30 +9,40 @@ import {
 import HorizontalBarChart from "../components/Charts/HorizontalBarChart";
 import ChartLabel from "../components/Charts/ChartLabel";
 import useData from "../state-management/useData";
+import Loading from "../components/Loading";
 
 const HomePage = () => {
-  const { trackData, artistData } = useData();
+  const { trackData, artistData, isLoading } = useData();
   return (
     <>
       <Flex flexDir="column" marginLeft={sideMargins} marginRight={sideMargins}>
         <Landing />
-        <TopYears />
-        <Heading marginBottom={bottomMarginHeading} fontSize="xl">
-          Top tracks of all years
+        <Heading fontSize="xl" marginBottom={bottomMarginHeading}>
+          Top years
         </Heading>
-        <Center marginBottom={bottomMarginSection}>
-          <HorizontalBarChart data={trackData}>
-            {(track) => <ChartLabel data={track} />}
-          </HorizontalBarChart>
-        </Center>
-        <Heading marginBottom={bottomMarginHeading} fontSize="xl">
-          Top artists of all years
-        </Heading>
-        <Center>
-          <HorizontalBarChart data={artistData}>
-            {(artist) => <ChartLabel data={artist} />}
-          </HorizontalBarChart>
-        </Center>
+        {isLoading ? (
+          <Loading />
+        ) : (
+          <>
+            <TopYears />
+            <Heading marginBottom={bottomMarginHeading} fontSize="xl">
+              Top tracks of all years
+            </Heading>
+            <Center marginBottom={bottomMarginSection}>
+              <HorizontalBarChart data={trackData}>
+                {(track) => <ChartLabel data={track} />}
+              </HorizontalBarChart>
+            </Center>
+            <Heading marginBottom={bottomMarginHeading} fontSize="xl">
+              Top artists of all years
+            </Heading>
+            <Center>
+              <HorizontalBarChart data={artistData}>
+                {(artist) => <ChartLabel data={artist} />}
+              </HorizontalBarChart>
+            </Center>
+          </>
+        )}
       </Flex>
     </>
   );
