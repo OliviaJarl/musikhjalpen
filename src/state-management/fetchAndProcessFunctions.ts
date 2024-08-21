@@ -45,7 +45,6 @@ export function getSortedTracks(trackCount: Map<string, TrackPlot>, limit: numbe
   const sortedArray = Array.from(trackCount.entries()).sort((a, b) => b[1].count - a[1].count);
   const limitedArray = sortedArray.slice(0, limit);
   
-  // Returnerar en array av TrackPlot objekt
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   return limitedArray.map(([_, trackPlot]) => trackPlot);
 }
@@ -163,4 +162,53 @@ export async function fetchAndProcessTrackData(id: string) : Promise<PlotItem[]>
     }
   }
   return yearCountArray;
+}
+
+export function processCityData(data: MusikhjalpenYear[]) : City[] {
+  const cityCountMap = new Map<string, number>();
+  
+  data.forEach((year: MusikhjalpenYear) => {
+  const currentCity = year.city;
+  if (cityCountMap.has(currentCity)) {
+    cityCountMap.set(currentCity, cityCountMap.get(currentCity)! + 1);
+  } else {
+    cityCountMap.set(currentCity, 1);
+  }
+});
+
+const citiesArray: City[] = Array.from(cityCountMap.entries()).map(
+  ([name, count]) => ({
+    name,
+    count,
+  })
+);
+const cities = citiesArray
+  .sort((a, b) => b.count - a.count)
+  .slice(0, citiesArray.length);
+
+  return cities;
+}
+
+
+export function processHostData(data: MusikhjalpenYear[]) : Host[] {
+const hostCountMap = new Map<string, number>();
+data.forEach((year: MusikhjalpenYear) => {
+  year.hosts.forEach((host: string) => {
+    if (hostCountMap.has(host)) {
+      hostCountMap.set(host, hostCountMap.get(host)! + 1);
+    } else {
+      hostCountMap.set(host, 1);
+    }
+  });
+});
+
+const hostsArray: Host[] = Array.from(hostCountMap.entries()).map(
+  ([name, count]) => ({
+    name,
+    count,
+  })
+);
+
+const hosts = hostsArray.sort((a, b) => b.count - a.count).slice(0, 7);
+return hosts;
 }

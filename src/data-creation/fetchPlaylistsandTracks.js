@@ -99,8 +99,8 @@ function fetchMusikhjalpenPlaylists(token, baseEndPoint, user) {
     return __awaiter(this, void 0, void 0, function () {
         var directoryPath, fileName, filePath, endPoint, playlistObjects;
         return __generator(this, function (_a) {
-            directoryPath = path.join(__dirname, '..', 'public', 'data');
-            fileName = 'musikhjalpenYears.json';
+            directoryPath = path.join(__dirname, '..', 'data');
+            fileName = 'musikTest.json';
             filePath = path.join(directoryPath, fileName);
             endPoint = "".concat(baseEndPoint, "/users/").concat(user, "/playlists");
             playlistObjects = [];
@@ -194,7 +194,7 @@ function fetchTracksOfPlaylist(token, playlistEndPoint, filePath) {
                 })
                     .catch(function (err) {
                     console.error(err);
-                    return ''; // Return an empty string or handle the error as needed
+                    return '';
                 })];
         });
     });
@@ -229,7 +229,7 @@ function fetchAllTracks(token, playlistEndPoint, filePath) {
 }
 function createTracksFile(year) {
     var directoryPath = path.join(__dirname, '..', 'public', 'data');
-    var fileName = "tracks".concat(year, ".json");
+    var fileName = "tracksTEST".concat(year, ".json");
     var filePath = path.join(directoryPath, fileName);
     var data = {
         tracks: []
@@ -243,7 +243,7 @@ function createTracksFile(year) {
     return filePath;
 }
 /*
-För att köra:
+To run in VS code:
 tsc fetchPlaylistsandTracks.ts
 node fetchPlaylistsandTracks.js
 */ 

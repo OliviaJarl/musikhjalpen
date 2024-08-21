@@ -141,7 +141,7 @@ async function fetchMusikhjalpenPlaylists(token: string, baseEndPoint: string, u
       })
       .catch((err) => {
         console.error(err);
-        return ''; // Return an empty string or handle the error as needed
+        return '';
       });
   }
 
@@ -181,7 +181,11 @@ async function fetchMusikhjalpenPlaylists(token: string, baseEndPoint: string, u
   }
   
 // TYPES
-
+interface Image {
+  height: number;
+  url: string;
+  width: number;
+}
   interface PlaylistResponse {
     href: string, 
     limit: number,
@@ -198,7 +202,7 @@ interface SimplifiedPlaylistObject {
     external_urls: {spotify: string},
     href: string,
     id: string,
-    images: typeof Image[],
+    images:  Image[],
     name: string,
     owner:
     {
@@ -245,7 +249,7 @@ interface MusikhjalpenYear {
         playlist_external_url: string,
         playlist_name: string,
         playlist_id: string,
-        playlist_images: typeof Image[],
+        playlist_images:  Image[],
         total_tracks: number,
         tracks_api_href: string,
 }
@@ -297,7 +301,7 @@ interface TrackObject {
       },
       href: string,
       id: string,
-      images: typeof Image[],
+      images:  Image[],
       name: string,
       release_date: string,
       release_date_precision: string,
@@ -356,7 +360,7 @@ interface TrackObject {
     },
     href: string,
     id: string,
-    images: typeof Image[],
+    images:  Image[],
     is_externally_hosted: boolean,
     is_playable: boolean,
     languages: string[],
@@ -383,7 +387,7 @@ interface TrackObject {
         },
         href: string,
         id: string,
-        images: typeof Image[],
+        images:  Image[],
         is_externally_hosted: boolean,
         languages: string[],
         media_type: string,
@@ -405,7 +409,7 @@ interface TrackObject {
     album_name: string,
     album_release_date: string,
     album_uri: string,
-    album_images: typeof Image[],
+    album_images: Image[],
     album_external_urls: string,
     artists: SimplifiedArtistObject[],
     duration_ms: number,
@@ -418,7 +422,7 @@ interface TrackObject {
 
 
   /*
-  För att köra:
+  To run in VS code:
   tsc fetchPlaylistsandTracks.ts
   node fetchPlaylistsandTracks.js 
   */

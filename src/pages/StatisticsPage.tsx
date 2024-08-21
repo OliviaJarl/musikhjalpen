@@ -11,7 +11,7 @@ import ChartLabel from "../components/Charts/ChartLabel";
 import {
   processCityData,
   processHostData,
-} from "../state-management/processCityHostData";
+} from "../state-management/fetchAndProcessFunctions";
 import useData from "../state-management/useData";
 import Loading from "../components/Loading";
 
