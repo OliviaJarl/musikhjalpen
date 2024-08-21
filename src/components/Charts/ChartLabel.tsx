@@ -7,27 +7,28 @@ interface ChartLabelProps {
 
 const ChartLabel = ({ data }: ChartLabelProps) => {
   return (
-    <Flex
-      flexDirection={{ base: "column", lg: "row" }}
-      alignItems="center"
-      gap={3}
-    >
-      <VStack alignItems="flex-end" width="100%" textAlign="right">
-        {isTrackPlot(data) && (
-          <>
-            <Link to={`/tracks/${data.id}`}>{data.name}</Link>
-            <Link to={`/artists/${data.artists[0].id}`}>
-              {data.artists[0].name}
-            </Link>
-          </>
-        )}
+    <Flex flexDirection="row" alignItems="center" gap={3}>
+      {isTrackPlot(data) && (
+        <VStack
+          alignItems={{ base: "flex-start", md: "flex-end" }}
+          width="100%"
+          textAlign={{ base: "left", md: "right" }}
+          order={{ base: 2, md: 1 }}
+        >
+          <Link to={`/tracks/${data.id}`}>{data.name}</Link>
+          <Link to={`/artists/${data.artists[0].id}`}>
+            {data.artists[0].name}
+          </Link>
+        </VStack>
+      )}
 
-        {isArtistPlot(data) && (
+      {isArtistPlot(data) && (
+        <Flex ml={{md: "auto"}}>
           <Link to={`/artists/${data.id}`}>{data.name}</Link>
-        )}
+        </Flex>
+      )}
 
-        {isHostOrCity(data) && <Text>{data.name}</Text>}
-      </VStack>
+      {isHostOrCity(data) && <Text ml={{md: "auto"}}>{data.name}</Text>}
 
       {isTrackPlot(data) && (
         <Image
@@ -36,6 +37,7 @@ const ChartLabel = ({ data }: ChartLabelProps) => {
           boxSize="50px"
           objectFit="cover"
           ml="auto"
+          order={{ base: 1, md: 2 }}
         />
       )}
     </Flex>

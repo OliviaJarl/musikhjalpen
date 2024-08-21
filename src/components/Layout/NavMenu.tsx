@@ -44,7 +44,7 @@ const NavMenu = () => {
       <Flex
         w="100vw"
         display={displayMenu}
-        bg="black"
+        bg="#015C48"
         zIndex={20}
         h="100vh"
         pos="fixed"
