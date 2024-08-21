@@ -8,7 +8,7 @@ import {
   sideMargins,
 } from "../constants";
 import useData from "../state-management/useData";
-import { fetchTrackData } from "../state-management/fetchAndProcessFunctions";
+import { fetchAndProcessTrackData } from "../state-management/fetchAndProcessFunctions";
 import VerticalBarChart from "../components/Charts/VerticalBarChart";
 
 const TrackDetailPage = () => {
@@ -20,28 +20,9 @@ const TrackDetailPage = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const years = Array.from({ length: 16 }, (_, index) =>
-        (2008 + index).toString()
-      );
-
-      // Initialize the array of PlotItems with year and count 0
-      const yearCountArray: PlotItem[] = years.map((year) => ({
-        year: year,
-        count: 0,
-      }));
-
-      for (const year of years) {
-        const tracks: Track[] = await fetchTrackData(year);
-
-        const count = tracks.filter((track) => track.id === id).length;
-
-        const yearItem = yearCountArray.find((item) => item.year === year);
-        if (yearItem) {
-          yearItem.count = count;
-        }
-      }
-
-      setData(yearCountArray);
+      if (!id) return;
+      const trackCountData = await fetchAndProcessTrackData(id);
+      setData(trackCountData);
       setIsLoading(false);
     };
 
@@ -49,7 +30,7 @@ const TrackDetailPage = () => {
   }, [id]);
 
   if (!id) {
-    return <Text>Error: ID not found</Text>;
+    console.log("ID not found");
   }
 
   return (
@@ -66,11 +47,7 @@ const TrackDetailPage = () => {
             <VerticalBarChart data={data}>
               {(item) =>
                 item.count > 0 ? (
-                  <Text
-                    fontSize={{ base: "sm", lg: "md" }}
-                  >
-                    {item.count}
-                  </Text>
+                  <Text fontSize={{ base: "sm", lg: "md" }}>{item.count}</Text>
                 ) : (
                   <Text></Text>
                 )

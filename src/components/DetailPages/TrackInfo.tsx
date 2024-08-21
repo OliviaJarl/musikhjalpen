@@ -43,7 +43,7 @@ const TrackInfo = ({ data }: Props) => {
           src={data.album_images}
           aspectRatio="1/1 auto"
         />
-        <Text>Image from Spotify's API</Text>
+        <Text fontStyle="italic">Image from Spotify's API</Text>
       </VStack>
       <TableContainer whiteSpace="normal">
         <Table variant="unstyled">

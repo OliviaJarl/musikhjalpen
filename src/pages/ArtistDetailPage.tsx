@@ -6,7 +6,7 @@ import {
   bottomMarginHeading,
   sideMargins,
 } from "../constants";
-import { fetchTrackData } from "../state-management/fetchAndProcessFunctions";
+import { fetchAndProcessArtistData } from "../state-management/fetchAndProcessFunctions";
 import VerticalBarChart from "../components/Charts/VerticalBarChart";
 
 const ArtistDetailPage = () => {
@@ -16,44 +16,16 @@ const ArtistDetailPage = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const years = Array.from({ length: 16 }, (_, index) =>
-        (2008 + index).toString()
-      );
-
-      // Initialize array of PlotItem objects with year and count set to 0
-      const artistCountArray: PlotItem[] = years.map((year) => ({
-        year: year,
-        count: 0,
-      }));
-
-      for (const year of years) {
-        const tracks: Track[] = await fetchTrackData(year);
-
-        for (const track of tracks) {
-          for (const artist of track.artists) {
-            if (id === artist.id) {
-              const yearItem = artistCountArray.find(
-                (item) => item.year === year
-              );
-              if (yearItem) {
-                yearItem.count += 1;
-              }
-            }
-          }
-        }
-      }
-
-      setArtistCountPerYear(artistCountArray);
+      if (!id) return;
+      const artistCountData = await fetchAndProcessArtistData(id);
+      setArtistCountPerYear(artistCountData);
       setIsLoading(false);
     };
-
-    if (id) {
-      fetchData();
-    }
+    fetchData();
   }, [id]);
 
   if (!id) {
-    return <Text>Error: ID not found</Text>;
+    console.log("ID not found");
   }
 
   return (
@@ -77,11 +49,19 @@ const ArtistDetailPage = () => {
         <Heading marginBottom={bottomMarginHeading} fontSize="xl">
           Number of plays each year
         </Heading>
-        <Center h="400px">
+        <Center marginBottom={bottomMarginSection} h="400px">
           {isLoading ? (
             <Text>Loading...</Text>
           ) : (
-            <VerticalBarChart data={artistCountPerYear} />
+            <VerticalBarChart data={artistCountPerYear}>
+              {(item) =>
+                item.count > 0 ? (
+                  <Text fontSize={{ base: "sm", lg: "md" }}>{item.count}</Text>
+                ) : (
+                  <Text></Text>
+                )
+              }
+            </VerticalBarChart>
           )}
         </Center>
       </Flex>

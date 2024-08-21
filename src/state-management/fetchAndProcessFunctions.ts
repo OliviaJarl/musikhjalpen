@@ -112,3 +112,55 @@ export async function fetchYearData() : Promise<MusikhjalpenYear[]>{
     return [];
   }
 }
+
+export async function fetchAndProcessArtistData(id: string) : Promise<PlotItem[]> {
+    const years = Array.from({ length: 16 }, (_, index) =>
+      (2008 + index).toString()
+    );
+    const artistCountArray: PlotItem[] = years.map((year) => ({
+      year: year,
+      count: 0,
+    }));
+
+    for (const year of years) {
+      const tracks: Track[] = await fetchTrackData(year);
+
+      for (const track of tracks) {
+        for (const artist of track.artists) {
+          if (id === artist.id) {
+            const yearItem = artistCountArray.find(
+              (item) => item.year === year
+            );
+            if (yearItem) {
+              yearItem.count += 1;
+            }
+          }
+        }
+      }
+    }
+    return artistCountArray;
+}
+
+export async function fetchAndProcessTrackData(id: string) : Promise<PlotItem[]> {
+  const years = Array.from({ length: 16 }, (_, index) =>
+    (2008 + index).toString()
+  );
+
+  // Initialize the array of PlotItems with year and count 0
+  const yearCountArray: PlotItem[] = years.map((year) => ({
+    year: year,
+    count: 0,
+  }));
+
+  for (const year of years) {
+    const tracks: Track[] = await fetchTrackData(year);
+
+    const count = tracks.filter((track) => track.id === id).length;
+
+    const yearItem = yearCountArray.find((item) => item.year === year);
+    if (yearItem) {
+      yearItem.count = count;
+    }
+  }
+  return yearCountArray;
+}
