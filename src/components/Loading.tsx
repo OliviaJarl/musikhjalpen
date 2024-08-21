@@ -1,7 +1,7 @@
 import { Center, Spinner } from "@chakra-ui/react";
 const Loading = () => {
   return (
-    <Center height={{ base: "400px", md: "600px" }}>
+    <Center height={{ base: "500px", md: "600px" }}>
       <Spinner />
     </Center>
   );

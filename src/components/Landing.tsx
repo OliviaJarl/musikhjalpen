@@ -1,12 +1,7 @@
 import { Center, Text } from "@chakra-ui/react";
 import CountUp from "react-countup";
-import useData from "../state-management/useData";
 
 const Landing = () => {
-  const {yearData} = useData();
-  let sum = 0;
-  yearData.map((year) => (sum += year.collected));
-
   return (
     <Center
       flexDir={"column"}
@@ -18,7 +13,7 @@ const Landing = () => {
       <Text fontSize={{ base: "5xl", md: "7xl" }} textAlign="center">
         <CountUp
           start={200}
-          end={sum / 1000000}
+          end={593.37}
           decimals={2}
           delay={0.3}
           duration={3}
