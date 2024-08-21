@@ -1,12 +1,12 @@
 import { useMemo } from "react";
-import { Center, Heading, VStack } from "@chakra-ui/react";
+import { Center, Heading, Text, VStack } from "@chakra-ui/react";
 import {
   sideMargins,
   bottomMarginHeading,
   bottomMarginSection,
 } from "../constants";
-import CollectedYears from "../components/Charts/CollectedYears";
 import HorizontalBarChart from "../components/Charts/HorizontalBarChart";
+import VerticalBarChart from "../components/Charts/VerticalBarChart";
 import ChartLabel from "../components/Charts/ChartLabel";
 import {
   processCityData,
@@ -19,15 +19,40 @@ const StatisticsPage = () => {
 
   const cityData = useMemo(() => processCityData(yearData), [yearData]);
   const hostData = useMemo(() => processHostData(yearData), [yearData]);
+  const collectedData: PlotItem[] = useMemo(() => {
+    return yearData.map((item) => ({
+      year: item.year,
+      count: item.collected,
+    }));
+  }, [yearData]);
 
   return (
     <>
       <VStack flexDir="column" margin={sideMargins} alignItems={"left"}>
         <Heading marginBottom={bottomMarginHeading} fontSize="xl">
-          Money collected
+          Million SEK collected
         </Heading>
         <Center marginBottom={bottomMarginSection}>
-          <CollectedYears />
+          <VerticalBarChart data={collectedData.reverse()}>
+            {(item) => (
+              <Text
+                transform={{ base: "rotate(-90deg)", md: "rotate(0deg)" }}
+                fontSize={{ base: "sm", lg: "md" }}
+                w={{
+                  base: "10px",
+                  sm: "15px",
+                  md: "42px",
+                  lg: "50px",
+                  xl: "60px",
+                }}
+                whiteSpace="nowrap"
+                textAlign={{ base: "left", md: "center" }}
+                marginTop={10}
+              >
+                {(item.count / 1000000).toFixed(2)}
+              </Text>
+            )}
+          </VerticalBarChart>
         </Center>
         <Heading marginBottom={bottomMarginHeading} fontSize="xl">
           Top cities

@@ -322,7 +322,7 @@ interface TrackPlot {
 
 interface PlotItem {
   count: number;
-  name: string;
+  year: string;
 }
 
 interface ArtistPlot {

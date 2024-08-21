@@ -1,25 +1,56 @@
 import { Box, HStack, Text, VStack } from "@chakra-ui/react";
-//import { motion } from "framer-motion";
+import { motion } from "framer-motion";
 
-interface Props {
-  data: PlotItem[];
+interface Props<T> {
+  data: T[];
+  children: (item: T) => React.ReactNode;
 }
 
-const VerticalBarChart = ({ data }: Props) => {
+const VerticalBarChart = <T extends { year: string; count: number }>({
+  data,
+  children,
+}: Props<T>) => {
   const maxCount = Math.max(...data.map((item) => item.count));
 
   return (
-    <HStack h="400px" gap={5} alignItems="flex-end" overflow="hidden">
+    <HStack
+      h="400px"
+      gap={{ base: 3, sm: 3, md: 0 }} 
+      overflowX="auto"
+      w="100%"
+      justifyContent="center"
+    >
       {data.map((item) => (
-        <VStack key={item.name} h="100%" spacing={1} justifyContent="flex-end">
-          {item.count > 0 ? <Text>{item.count}</Text> : <Text></Text>}
+        <VStack
+          key={item.year}
+          h="100%"
+          justifyContent="flex-end"
+          alignItems="center"
+          spacing={{ base: 2, md: 0 }}
+        >
+          {children(item)} 
           <Box
             bg="#159E80"
-            h={`${(item.count / maxCount) * 100}%`}
-            w="20px"
+            w={{ base: "10px", sm: "15px", md: "20px" }}
             borderRadius="md"
+            as={motion.div}
+            initial={{ height: 0 }}
+            whileInView={{
+              height: `${(item.count / maxCount) * 100}%`,
+              transition: { duration: 1.5 },
+            }}
+            viewport={{ once: true }}
           />
-          <Text>{item.name}</Text>
+          <Text
+            transform={{ base: "rotate(-90deg)", md: "rotate(0deg)" }}
+            marginTop={{ base: "20px", md: "4px" }}
+            w={{ base: "10px", sm: "15px", md: "42px", lg: "50px", xl: "60px" }}
+            whiteSpace="nowrap"
+            textAlign={{ base: "left", md: "center" }}
+            fontSize={{ base: "sm", lg: "md" }}
+          >
+            {item.year}
+          </Text>
         </VStack>
       ))}
     </HStack>

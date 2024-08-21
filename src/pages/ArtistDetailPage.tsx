@@ -22,7 +22,7 @@ const ArtistDetailPage = () => {
 
       // Initialize array of PlotItem objects with year and count set to 0
       const artistCountArray: PlotItem[] = years.map((year) => ({
-        name: year,
+        year: year,
         count: 0,
       }));
 
@@ -33,7 +33,7 @@ const ArtistDetailPage = () => {
           for (const artist of track.artists) {
             if (id === artist.id) {
               const yearItem = artistCountArray.find(
-                (item) => item.name === year
+                (item) => item.year === year
               );
               if (yearItem) {
                 yearItem.count += 1;

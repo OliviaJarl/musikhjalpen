@@ -26,7 +26,7 @@ const TrackDetailPage = () => {
 
       // Initialize the array of PlotItems with year and count 0
       const yearCountArray: PlotItem[] = years.map((year) => ({
-        name: year,
+        year: year,
         count: 0,
       }));
 
@@ -35,7 +35,7 @@ const TrackDetailPage = () => {
 
         const count = tracks.filter((track) => track.id === id).length;
 
-        const yearItem = yearCountArray.find((item) => item.name === year);
+        const yearItem = yearCountArray.find((item) => item.year === year);
         if (yearItem) {
           yearItem.count = count;
         }
@@ -63,7 +63,19 @@ const TrackDetailPage = () => {
           {isLoading ? (
             <Text>Loading...</Text>
           ) : (
-            <VerticalBarChart data={data} />
+            <VerticalBarChart data={data}>
+              {(item) =>
+                item.count > 0 ? (
+                  <Text
+                    fontSize={{ base: "sm", lg: "md" }}
+                  >
+                    {item.count}
+                  </Text>
+                ) : (
+                  <Text></Text>
+                )
+              }
+            </VerticalBarChart>
           )}
         </Center>
       </Flex>
