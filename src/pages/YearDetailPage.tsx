@@ -1,7 +1,6 @@
 import { useParams } from "react-router";
 import { useState, useEffect } from "react";
 import { Center, Flex, Heading, VStack, Text } from "@chakra-ui/react";
-import useData from "../state-management/useData";
 import YearInfo from "../components/DetailPages/YearInfo";
 import PlaylistDisplay from "../components/PlaylistDisplay";
 import HorizontalBarChart from "../components/Charts/HorizontalBarChart";
@@ -18,44 +17,57 @@ import {
   trackOccurrence,
   artistOccurence,
   sortArtistsByCount,
+  fetchYearData,
 } from "../state-management/fetchAndProcessFunctions";
 import Loading from "../components/Loading";
 
 const YearDetailPage = () => {
   const { id } = useParams();
-  const { yearData, isLoading } = useData();
-  const currentYear: MusikhjalpenYear = yearData[Number(id)];
-
   const [trackData, setTrackData] = useState<TrackPlot[]>([]);
+  const [currentYear, setCurrentYear] = useState<MusikhjalpenYear | null>(null);
   const [artistData, setArtistData] = useState<ArtistPlot[]>([]);
   const [isLocalLoading, setLocalLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
+      setLocalLoading(true);
       try {
-        const tracks: Track[] = await fetchTrackData(currentYear.year);
-        const trackCount = trackOccurrence(tracks);
-        const artistCount = artistOccurence(tracks);
+        const years: MusikhjalpenYear[] = await fetchYearData();
+        const year = years.find((year) => year.id === Number(id));
 
-        const sortedTracks = getSortedTracks(trackCount);
-        const sortedArtists = sortArtistsByCount(
-          Array.from(artistCount.values())
-        );
+        if (year) {
+          setCurrentYear(year);
+          const tracks: Track[] = await fetchTrackData(year.year);
+          const trackCount = trackOccurrence(tracks);
+          const artistCount = artistOccurence(tracks);
 
-        if (sortedTracks) {
+          const sortedTracks = getSortedTracks(trackCount);
+          const sortedArtists = sortArtistsByCount(
+            Array.from(artistCount.values())
+          );
+
           setTrackData(sortedTracks);
-        }
-        if (sortedArtists) {
           setArtistData(sortedArtists);
+        } else {
+          console.error("Year not found");
         }
       } catch (error) {
         console.error("Error fetching data", error);
       } finally {
-        setLocalLoading(true);
+        setLocalLoading(false);
       }
     };
+
     fetchData();
-  }, [currentYear.year]);
+  }, [id]);
+
+  if (isLocalLoading) {
+    return <Loading />;
+  }
+
+  if (!currentYear) {
+    return <Text>Year data not found.</Text>;
+  }
 
   return (
     <Flex
@@ -64,67 +76,61 @@ const YearDetailPage = () => {
       marginLeft={sideMargins}
       marginRight={sideMargins}
     >
-      {isLoading && isLocalLoading ? (
-        <Loading />
-      ) : (
-        <>
-          <YearInfo data={currentYear} />
+      <YearInfo data={currentYear} />
+      <Heading fontSize="xl" marginBottom={bottomMarginHeading}>
+        Most played songs
+      </Heading>
+      <Center marginBottom={bottomMarginSection}>
+        <HorizontalBarChart data={trackData}>
+          {(track) => <ChartLabel data={track} />}
+        </HorizontalBarChart>
+      </Center>
+      <Flex
+        marginBottom={bottomMarginSection}
+        gap={{ base: 50, md: 200 }}
+        flexDir={{ base: "column", md: "row" }}
+      >
+        <VStack alignItems="flex-start">
           <Heading fontSize="xl" marginBottom={bottomMarginHeading}>
-            Most played songs
+            Most wished songs
           </Heading>
-          <Center marginBottom={bottomMarginSection}>
-            <HorizontalBarChart data={trackData}>
-              {(track) => <ChartLabel data={track} />}
-            </HorizontalBarChart>
-          </Center>
-          <Flex
-            marginBottom={bottomMarginSection}
-            gap={{ base: 50, md: 200 }}
-            flexDir={{ base: "column", md: "row" }}
-          >
-            <VStack alignItems="flex-start">
-              <Heading fontSize="xl" marginBottom={bottomMarginHeading}>
-                Most wished songs
-              </Heading>
-              {currentYear.most_wished_songs.map((song, index) => (
-                <WishedItem key={index} name={song} index={index} />
-              ))}
-            </VStack>
-            <VStack w={{ base: "100%", md: "30%" }} alignItems="flex-start">
-              <Heading fontSize="xl" marginBottom={bottomMarginHeading}>
-                Most wished artists
-              </Heading>
-              {currentYear.most_wished_artists.length === 0 ? (
-                <Text fontSize="xl">Information is missing</Text>
-              ) : (
-                currentYear.most_wished_artists.map((artist, index) => (
-                  <WishedItem key={index} name={artist} index={index} />
-                ))
-              )}
-            </VStack>
-          </Flex>
+          {currentYear.most_wished_songs.map((song, index) => (
+            <WishedItem key={index} name={song} index={index} />
+          ))}
+        </VStack>
+        <VStack w={{ base: "100%", md: "30%" }} alignItems="flex-start">
           <Heading fontSize="xl" marginBottom={bottomMarginHeading}>
-            Most played artists
+            Most wished artists
           </Heading>
-          <Center>
-            <HorizontalBarChart data={artistData}>
-              {(artist) => <ChartLabel data={artist} />}
-            </HorizontalBarChart>
-          </Center>
-          <Flex
-            flexDir={{ base: "column", md: "row" }}
-            marginBottom={bottomMarginSection}
-            justifyContent="space-between"
-          ></Flex>
-          <Heading fontSize="xl" marginBottom={bottomMarginHeading}>
-            Spotify playlist
-          </Heading>
-          <PlaylistDisplay
-            id={currentYear.playlist_id}
-            externalURL={currentYear.playlist_external_url}
-          />
-        </>
-      )}
+          {currentYear.most_wished_artists.length === 0 ? (
+            <Text fontSize="xl">Information is missing</Text>
+          ) : (
+            currentYear.most_wished_artists.map((artist, index) => (
+              <WishedItem key={index} name={artist} index={index} />
+            ))
+          )}
+        </VStack>
+      </Flex>
+      <Heading fontSize="xl" marginBottom={bottomMarginHeading}>
+        Most played artists
+      </Heading>
+      <Center>
+        <HorizontalBarChart data={artistData}>
+          {(artist) => <ChartLabel data={artist} />}
+        </HorizontalBarChart>
+      </Center>
+      <Flex
+        flexDir={{ base: "column", md: "row" }}
+        marginBottom={bottomMarginSection}
+        justifyContent="space-between"
+      ></Flex>
+      <Heading fontSize="xl" marginBottom={bottomMarginHeading}>
+        Spotify playlist
+      </Heading>
+      <PlaylistDisplay
+        id={currentYear.playlist_id}
+        externalURL={currentYear.playlist_external_url}
+      />
     </Flex>
   );
 };
