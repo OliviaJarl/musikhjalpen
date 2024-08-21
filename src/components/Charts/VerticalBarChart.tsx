@@ -1,4 +1,5 @@
 import { Box, HStack, Text, VStack } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 interface Props<T> {
@@ -20,7 +21,7 @@ const VerticalBarChart = <T extends { year: string; count: number }>({
       w="100%"
       justifyContent="center"
     >
-      {data.map((item) => (
+      {data.map((item, index) => (
         <VStack
           key={item.year}
           h="100%"
@@ -41,22 +42,24 @@ const VerticalBarChart = <T extends { year: string; count: number }>({
             }}
             viewport={{ once: true }}
           />
-          <Text
-            transform={{ base: "rotate(-90deg)", md: "rotate(0deg)" }}
-            marginTop={{ base: "20px", md: "4px" }}
-            w={{
-              base: "10px",
-              sm: "15px",
-              md: "42px",
-              lg: "50px",
-              xl: "60px",
-            }}
-            whiteSpace="nowrap"
-            textAlign={{ base: "left", md: "center" }}
-            fontSize={{ base: "sm", lg: "md" }}
-          >
-            {item.year}
-          </Text>
+          <Link to={`/years/${15 - index}`}>
+            <Text
+              transform={{ base: "rotate(-90deg)", md: "rotate(0deg)" }}
+              marginTop={{ base: "20px", md: "4px" }}
+              w={{
+                base: "10px",
+                sm: "15px",
+                md: "42px",
+                lg: "50px",
+                xl: "60px",
+              }}
+              whiteSpace="nowrap"
+              textAlign={{ base: "left", md: "center" }}
+              fontSize={{ base: "sm", lg: "md" }}
+            >
+              {item.year}
+            </Text>
+          </Link>
         </VStack>
       ))}
     </HStack>

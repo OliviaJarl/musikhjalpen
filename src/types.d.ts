@@ -251,22 +251,7 @@ interface Musikhjalpen {
     startdatetime: string,
     enddatetime: string,
 }
-/*
-interface MusikhjalpenYear {
-    id: number,
-    year: string;
-    startdatetime: string;
-    enddatetime: string;
-    theme: string;
-    city: string;
-    hosts: string[];
-    collected: number;
-    playlist_url: string;
-    tracklist_url: string;
-    image: string;
-    most_wished_songs: string[];
-  }
-*/
+
 interface MusikhjalpenYear {
   id: number,
   year: string,

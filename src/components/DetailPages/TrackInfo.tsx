@@ -12,7 +12,7 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import { Link as RouterLink } from "react-router-dom";
-import { Fragment } from "react"; // Import Fragment
+import { Fragment } from "react";
 
 interface Props {
   data: Track | undefined;
@@ -20,7 +20,6 @@ interface Props {
 }
 
 const TrackInfo = ({ data, total }: Props) => {
-
   if (data === undefined) {
     return <Text>Track not found</Text>;
   }
@@ -72,7 +71,13 @@ const TrackInfo = ({ data, total }: Props) => {
                 {data.artists.map((artist, index) => (
                   <Fragment key={artist.id}>
                     <RouterLink to={`/artists/${artist.id}`}>
-                      {artist.name}
+                      <Text
+                        _hover={{
+                          textDecor: "underline",
+                        }}
+                      >
+                        {artist.name}
+                      </Text>
                     </RouterLink>
                     {index < data.artists.length - 1 && ", "}
                   </Fragment>
@@ -83,7 +88,11 @@ const TrackInfo = ({ data, total }: Props) => {
               <Td fontWeight="bold" verticalAlign="top">
                 Album
               </Td>
-              <Td>{data.album_name}</Td>
+              <Td>
+                <Link href={data.album_external_urls} isExternal>
+                  {data.album_name}
+                </Link>
+              </Td>
             </Tr>
             <Tr>
               <Td fontWeight="bold" verticalAlign="top">
@@ -94,7 +103,7 @@ const TrackInfo = ({ data, total }: Props) => {
             <Tr>
               <Td fontWeight="bold" verticalAlign="top" colSpan={2}>
                 <Link href={data.external_url} isExternal>
-                  <Button>Link to Spotify</Button>
+                  <Button>Listen at Spotify</Button>
                 </Link>
               </Td>
             </Tr>
