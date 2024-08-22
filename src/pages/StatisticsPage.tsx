@@ -59,7 +59,7 @@ const StatisticsPage = () => {
             </VerticalBarChart>
           </Center>
           <Heading marginBottom={bottomMarginHeading} fontSize="xl">
-            Top cities
+            Top hosting cities
           </Heading>
           <Center marginBottom={bottomMarginSection}>
             <HorizontalBarChart data={cityData}>
