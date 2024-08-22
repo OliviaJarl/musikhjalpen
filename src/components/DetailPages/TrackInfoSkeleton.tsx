@@ -2,7 +2,6 @@ import {
   Button,
   Center,
   Image,
-  Link,
   TableContainer,
   Table,
   Tbody,
@@ -10,20 +9,12 @@ import {
   Text,
   Tr,
   VStack,
+  Skeleton,
 } from "@chakra-ui/react";
-import { Link as RouterLink } from "react-router-dom";
-import { Fragment } from "react";
 
-interface Props {
-  data: Track | undefined;
-  total: number;
-}
-
-const TrackInfo = ({ data, total }: Props) => {
-  if (data === undefined) {
-    return <Text>Track not found</Text>;
-  }
-
+const TrackInfoSkeleton = () => {
+  const startColor = "#BBE5DC";
+  const endColor = "#70C2B0";
   return (
     <Center
       marginTop={{ base: "20px", sm: "40px", lg: "70px" }}
@@ -39,11 +30,13 @@ const TrackInfo = ({ data, total }: Props) => {
         maxW={{ xl: "800px" }}
       >
         <Image
-          alt={"Album image"}
-          src={data.album_images[0].url}
+          alt={"Placeholder image "}
+          src="/placeholder_square.svg"
           aspectRatio="1/1 auto"
         />
-        <Text fontStyle="italic">Image from Spotify's API</Text>
+        <Skeleton startColor={startColor} endColor={endColor} w="80%">
+          <Text fontStyle="italic">Image from Spotify's API</Text>
+        </Skeleton>
       </VStack>
       <TableContainer whiteSpace="normal">
         <Table variant="unstyled">
@@ -60,7 +53,9 @@ const TrackInfo = ({ data, total }: Props) => {
                   xl: "3xl",
                 }}
               >
-                {data.name}
+                <Skeleton startColor={startColor} endColor={endColor}>
+                  <Text>Title of this </Text>
+                </Skeleton>
               </Td>
             </Tr>
             <Tr>
@@ -68,20 +63,9 @@ const TrackInfo = ({ data, total }: Props) => {
                 Artists
               </Td>
               <Td>
-                {data.artists.map((artist, index) => (
-                  <Fragment key={artist.id}>
-                    <RouterLink to={`/artists/${artist.id}`}>
-                      <Text
-                        _hover={{
-                          textDecor: "underline",
-                        }}
-                      >
-                        {artist.name}
-                      </Text>
-                    </RouterLink>
-                    {index < data.artists.length - 1 && ", "}
-                  </Fragment>
-                ))}
+                <Skeleton startColor={startColor} endColor={endColor}>
+                  <Text>Artist 1, artist 2</Text>
+                </Skeleton>
               </Td>
             </Tr>
             <Tr>
@@ -89,22 +73,24 @@ const TrackInfo = ({ data, total }: Props) => {
                 Album
               </Td>
               <Td>
-                <Link href={data.album_external_urls} isExternal>
-                  {data.album_name}
-                </Link>
+              <Skeleton startColor={startColor} endColor={endColor}>
+                    <Text>Album name</Text>
+                  </Skeleton>
               </Td>
             </Tr>
             <Tr>
               <Td fontWeight="bold" verticalAlign="top">
                 Played in total
               </Td>
-              <Td>{total} times</Td>
+                <Td>
+                  <Skeleton startColor={startColor} endColor={endColor}>
+                    <Text>XX times</Text>
+                  </Skeleton>
+              </Td>
             </Tr>
             <Tr>
               <Td fontWeight="bold" verticalAlign="top" colSpan={2}>
-                <Link href={data.external_url} isExternal>
-                  <Button>Listen at Spotify</Button>
-                </Link>
+                <Button>Listen at Spotify</Button>
               </Td>
             </Tr>
           </Tbody>
@@ -114,4 +100,4 @@ const TrackInfo = ({ data, total }: Props) => {
   );
 };
 
-export default TrackInfo;
+export default TrackInfoSkeleton;

@@ -1,18 +1,20 @@
 import {
   Center,
   Image,
-  TableContainer,
+  Skeleton,
   Table,
+  TableContainer,
   Tbody,
   Td,
   Text,
   Tr,
   VStack,
 } from "@chakra-ui/react";
-import { dateString } from "./dateString";
-import { formatNames } from "./formatNames";
 
-const YearInfo = ({ data }: { data: MusikhjalpenYear }) => {
+
+const YearInfoSkeleton = () => {
+  const startColor = "#BBE5DC";
+  const endColor = "#70C2B0";
   return (
     <Center
       marginTop={{ base: "20px", sm: "40px", lg: "70px" }}
@@ -28,11 +30,13 @@ const YearInfo = ({ data }: { data: MusikhjalpenYear }) => {
         maxW={{ xl: "800px" }}
       >
         <Image
-          alt={"Image of the hosts"}
-          src={data.image.src}
+          alt={"Placeholder image"}
+          src={"/placeholder.svg"}
           aspectRatio="768/581 auto"
         />
-        <Text>{data.image.copyright}</Text>
+        <Skeleton startColor={startColor} endColor={endColor} w={{base: "100%", md: "60%"}}>
+          <Text>Text about the image source</Text>
+        </Skeleton>
       </VStack>
       <TableContainer whiteSpace="normal">
         <Table variant="unstyled">
@@ -48,7 +52,11 @@ const YearInfo = ({ data }: { data: MusikhjalpenYear }) => {
                   lg: "4xl",
                   xl: "5xl",
                 }}
-              >{`Musikhjälpen ${data.year}`}</Td>
+              >
+                <Skeleton startColor={startColor} endColor={endColor} h="55px">
+                  <Text>Musikhjälpen 20XX</Text>
+                </Skeleton>
+              </Td>
             </Tr>
             <Tr>
               <Td
@@ -56,40 +64,62 @@ const YearInfo = ({ data }: { data: MusikhjalpenYear }) => {
                 fontStyle="italic"
                 textAlign={{ base: "center", md: "left" }}
               >
-                {data.theme}
+                <Skeleton startColor={startColor} endColor={endColor}>
+                  <Text>
+                    Text about the theme of the year which can be long
+                  </Text>
+                </Skeleton>
               </Td>
             </Tr>
             <Tr>
               <Td fontWeight="bold" verticalAlign="top">
                 City
               </Td>
-              <Td>{data.city}</Td>
+              <Td>
+                <Skeleton startColor={startColor} endColor={endColor}>
+                  <Text>City name</Text>
+                </Skeleton>
+              </Td>
             </Tr>
             <Tr>
               <Td fontWeight="bold" verticalAlign="top">
                 Hosts
               </Td>
-              <Td>{formatNames(data.hosts)}</Td>
+              <Td>
+                <Skeleton startColor={startColor} endColor={endColor}>
+                  <Text>Aaaaaa bbbbbbb, ccccccc dddddd & eeeeee fffffff</Text>
+                </Skeleton>
+              </Td>
             </Tr>
             <Tr>
               <Td fontWeight="bold" verticalAlign="top">
-                {data.travelling_hosts.length === 1
-                  ? "Traveling host"
-                  : "Traveling hosts"}
+                Traveling hosts
               </Td>
-              <Td>{formatNames(data.travelling_hosts)}</Td>
+              <Td>
+                <Skeleton startColor={startColor} endColor={endColor}>
+                  <Text>Traveling host 1 name</Text>
+                </Skeleton>
+              </Td>
             </Tr>
             <Tr>
               <Td fontWeight="bold" verticalAlign="top">
                 Period
               </Td>
-              <Td>{dateString(data.startdatetime, data.enddatetime)}</Td>
+              <Td>
+                <Skeleton startColor={startColor} endColor={endColor}>
+                  <Text>XX December to YY December</Text>
+                </Skeleton>
+              </Td>
             </Tr>
             <Tr>
               <Td fontWeight="bold" verticalAlign="top">
                 Collected
               </Td>
-              <Td>{data.collected.toLocaleString("sv-SE")} SEK</Td>
+              <Td>
+                <Skeleton startColor={startColor} endColor={endColor}>
+                  <Text>YY UUU XXX SEK</Text>
+                </Skeleton>
+              </Td>
             </Tr>
           </Tbody>
         </Table>
@@ -98,4 +128,4 @@ const YearInfo = ({ data }: { data: MusikhjalpenYear }) => {
   );
 };
 
-export default YearInfo;
+export default YearInfoSkeleton;
