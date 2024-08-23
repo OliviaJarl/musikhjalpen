@@ -13,7 +13,6 @@ import {
 } from "../state-management/fetchAndProcessFunctions";
 import VerticalBarChart from "../components/Charts/VerticalBarChart";
 import Loading from "../components/Loading";
-import TrackInfoSkeleton from "../components/DetailPages/TrackInfoSkeleton";
 
 const TrackDetailPage = () => {
   const [data, setData] = useState<PlotItem[]>([]);
@@ -48,10 +47,6 @@ const TrackDetailPage = () => {
       <Flex flexDir="column" marginLeft={sideMargins} marginRight={sideMargins}>
         {isLocalLoading ? (
           <>
-            <TrackInfoSkeleton />
-            <Heading marginBottom={bottomMarginHeading} fontSize="xl">
-              Number of plays each year
-            </Heading>
             <Loading />
           </>
         ) : (

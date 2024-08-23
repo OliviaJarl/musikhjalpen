@@ -20,7 +20,6 @@ import {
   fetchYearData,
 } from "../state-management/fetchAndProcessFunctions";
 import Loading from "../components/Loading";
-import YearInfoSkeleton from "../components/DetailPages/YearInfoSkeleton";
 
 const YearDetailPage = () => {
   const { id } = useParams();
@@ -62,8 +61,8 @@ const YearDetailPage = () => {
     fetchData();
   }, [id]);
 
-  if (!currentYear) {
-    return <Text>Year data not found.</Text>;
+  if (!isLocalLoading && currentYear === null) {
+    return <Text>Id is not defined</Text>;
   }
 
   return (
@@ -73,12 +72,8 @@ const YearDetailPage = () => {
       marginLeft={sideMargins}
       marginRight={sideMargins}
     >
-      {isLocalLoading ? (
+      {isLocalLoading || currentYear === null ? (
         <>
-          <YearInfoSkeleton />
-          <Heading fontSize="xl" marginBottom={bottomMarginHeading}>
-            Most played songs
-          </Heading>
           <Loading />
         </>
       ) : (
@@ -109,7 +104,7 @@ const YearDetailPage = () => {
               <Heading fontSize="xl" marginBottom={bottomMarginHeading}>
                 Most wished artists
               </Heading>
-              {currentYear.most_wished_artists.length === 0 ? (
+              {currentYear.most_wished_artists[0] === "" ? (
                 <Text fontSize="xl">Information is missing</Text>
               ) : (
                 currentYear.most_wished_artists.map((artist, index) => (
