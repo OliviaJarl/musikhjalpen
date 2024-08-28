@@ -41,12 +41,11 @@ export function trackOccurrence(tracks: Track[]): Map<string, TrackPlot> {
 
 
 
-export function getSortedTracks(trackCount: Map<string, TrackPlot>, limit: number = 10): TrackPlot[] {
+export function getSortedTracks(trackCount: Map<string, TrackPlot>): TrackPlot[] {
   const sortedArray = Array.from(trackCount.entries()).sort((a, b) => b[1].count - a[1].count);
-  const limitedArray = sortedArray.slice(0, limit);
   
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  return limitedArray.map(([_, trackPlot]) => trackPlot);
+  return sortedArray.map(([_, trackPlot]) => trackPlot);
 }
 
 
@@ -73,7 +72,7 @@ return artistCount;
 
 export function sortArtistsByCount(artists: ArtistPlot[]): ArtistPlot[]  {
   const sortedArray = artists.sort((a, b) => b.count - a.count)
-  return sortedArray.slice(0, 10);
+  return sortedArray;
 }
 
 export async function fetchTracksAllYears(): Promise<Track[]> {

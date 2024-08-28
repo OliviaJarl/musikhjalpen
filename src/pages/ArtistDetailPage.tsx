@@ -1,29 +1,36 @@
 import { useParams } from "react-router";
 import { useState, useEffect } from "react";
-import { Box, Center, Heading, Flex, Text, Spinner } from "@chakra-ui/react";
+import { Box, Center, Heading, Flex, Text } from "@chakra-ui/react";
 import {
   bottomMarginSection,
   bottomMarginHeading,
   sideMargins,
 } from "../constants";
-import { fetchAndProcessArtistData } from "../state-management/fetchAndProcessFunctions";
+import { artistOccurence, fetchAndProcessArtistData, fetchTracksAllYears } from "../state-management/fetchAndProcessFunctions";
 import VerticalBarChart from "../components/Charts/VerticalBarChart";
+import Breadcrumb from "../components/Breadcrumb";
+import Loading from "../components/Loading";
 
 const ArtistDetailPage = () => {
   const { id } = useParams<{ id?: string }>();
   const [artistCountPerYear, setArtistCountPerYear] = useState<PlotItem[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLocalLoading, setIsLocalLoading] = useState(true);
+  const [currentArtist, setCurrentArtist] = useState<ArtistPlot>();
 
   useEffect(() => {
     const fetchData = async () => {
       if (!id) return;
       try {
         const artistCountData = await fetchAndProcessArtistData(id);
+        const tracks: Track[] = await fetchTracksAllYears();
+        const artists = artistOccurence(tracks);
+
+        setCurrentArtist (Array.from(artists.values()).find((artist) => artist.id === id))
         setArtistCountPerYear(artistCountData);
       } catch (error) {
         console.log(error);
       } finally {
-        setIsLoading(false);
+        setIsLocalLoading(false);
       }
     };
     fetchData();
@@ -35,29 +42,34 @@ const ArtistDetailPage = () => {
 
   return (
     <>
-      <Flex flexDir="column" marginLeft={sideMargins} marginRight={sideMargins}>
-        <Center
-          marginBottom={bottomMarginSection}
-          marginTop={{ base: "20px", md: "40px" }}
+      {(isLocalLoading || !currentArtist) ? (
+        <Loading />
+      ) : (
+        <Flex
+          flexDir="column"
+          marginLeft={sideMargins}
+          marginRight={sideMargins}
         >
-          <Box
-            as="iframe"
-            src={`https://open.spotify.com/embed/artist/${id}?utm_source=generator`}
-            w={{ base: "100%", md: "60%" }}
-            height="352"
-            borderRadius={14}
-            frameBorder="0"
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            loading="lazy"
-          />
-        </Center>
-        <Heading marginBottom={bottomMarginHeading} fontSize="xl">
-          Number of plays each year
-        </Heading>
-        <Center marginBottom={bottomMarginSection} h="400px">
-          {isLoading ? (
-            <Spinner />
-          ) : (
+          <Breadcrumb lastPathName={currentArtist.name} />
+          <Center
+            marginBottom={bottomMarginSection}
+            marginTop={{ base: "20px", md: "40px" }}
+          >
+            <Box
+              as="iframe"
+              src={`https://open.spotify.com/embed/artist/${id}?utm_source=generator`}
+              w={{ base: "100%", md: "60%" }}
+              height="352"
+              borderRadius={14}
+              frameBorder="0"
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+            />
+          </Center>
+          <Heading marginBottom={bottomMarginHeading} fontSize="xl">
+            Number of plays each year
+          </Heading>
+          <Center marginBottom={bottomMarginSection} h="400px">
             <VerticalBarChart data={artistCountPerYear}>
               {(item) =>
                 item.count > 0 ? (
@@ -67,9 +79,9 @@ const ArtistDetailPage = () => {
                 )
               }
             </VerticalBarChart>
-          )}
-        </Center>
-      </Flex>
+          </Center>
+        </Flex>
+      )}
     </>
   );
 };

@@ -13,6 +13,7 @@ import {
 } from "../state-management/fetchAndProcessFunctions";
 import VerticalBarChart from "../components/Charts/VerticalBarChart";
 import Loading from "../components/Loading";
+import Breadcrumb from "../components/Breadcrumb";
 
 const TrackDetailPage = () => {
   const [data, setData] = useState<PlotItem[]>([]);
@@ -38,19 +39,20 @@ const TrackDetailPage = () => {
     fetchData();
   }, [id]);
 
-  if (!id) {
+  if (!id ) {
     console.log("ID not found");
   }
 
   return (
     <>
       <Flex flexDir="column" marginLeft={sideMargins} marginRight={sideMargins}>
-        {isLocalLoading ? (
+        {(isLocalLoading || !currentTrack) ? (
           <>
             <Loading />
           </>
         ) : (
           <>
+          <Breadcrumb lastPathName={currentTrack?.name}/>
             <TrackInfo
               data={currentTrack}
               total={data.reduce((sum, item) => sum + item.count, 0)}

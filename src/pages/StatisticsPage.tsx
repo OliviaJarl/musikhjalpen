@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { Center, Heading, Spinner, Text, VStack } from "@chakra-ui/react";
+import { Center, Heading, Text, VStack } from "@chakra-ui/react";
 import {
   sideMargins,
   bottomMarginHeading,
@@ -13,6 +13,8 @@ import {
   processHostData,
 } from "../state-management/fetchAndProcessFunctions";
 import useData from "../state-management/useData";
+import Breadcrumb from "../components/Breadcrumb";
+import Loading from "../components/Loading";
 
 const StatisticsPage = () => {
   const { trackData, artistData, yearData, isLoading } = useData();
@@ -28,19 +30,24 @@ const StatisticsPage = () => {
 
   return (
     <>
-      <VStack flexDir="column" margin={sideMargins} alignItems={"left"}>
+      <VStack
+        flexDir="column"
+        marginLeft={sideMargins}
+        marginRight={sideMargins}
+        alignItems={"left"}
+      >
         {isLoading ? (
           <>
-            <Heading marginBottom={bottomMarginHeading} fontSize="xl">
-              Million SEK collected
-            </Heading>
-            <Center h="400px" w="100%" marginBottom={bottomMarginSection}>
-              <Spinner />
-            </Center>
+            <Loading />
           </>
         ) : (
           <>
-            <Heading marginBottom={bottomMarginHeading} fontSize="xl">
+            <Breadcrumb lastPathName="Stastistics" />
+            <Heading
+              marginBottom={bottomMarginHeading}
+              marginTop={{ base: "10px", md: "20px", lg: "30px" }}
+              fontSize="xl"
+            >
               Million SEK collected
             </Heading>
             <Center marginBottom={bottomMarginSection}>
@@ -85,7 +92,7 @@ const StatisticsPage = () => {
               Top tracks of all years
             </Heading>
             <Center marginBottom={bottomMarginSection}>
-              <HorizontalBarChart data={trackData}>
+              <HorizontalBarChart data={trackData.slice(0,10)}>
                 {(track) => <ChartLabel data={track} />}
               </HorizontalBarChart>
             </Center>
@@ -93,7 +100,7 @@ const StatisticsPage = () => {
               Top artists of all years
             </Heading>
             <Center>
-              <HorizontalBarChart data={artistData}>
+              <HorizontalBarChart data={artistData.slice(0,10)}>
                 {(artist) => <ChartLabel data={artist} />}
               </HorizontalBarChart>
             </Center>

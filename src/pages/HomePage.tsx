@@ -29,7 +29,7 @@ const HomePage = () => {
               Top tracks of all years
             </Heading>
             <Center marginBottom={bottomMarginSection}>
-              <HorizontalBarChart data={trackData}>
+              <HorizontalBarChart data={trackData.slice(0, 10)}>
                 {(track) => <ChartLabel data={track} />}
               </HorizontalBarChart>
             </Center>
@@ -37,7 +37,7 @@ const HomePage = () => {
               Top artists of all years
             </Heading>
             <Center>
-              <HorizontalBarChart data={artistData}>
+              <HorizontalBarChart data={artistData.slice(0, 10)}>
                 {(artist) => <ChartLabel data={artist} />}
               </HorizontalBarChart>
             </Center>

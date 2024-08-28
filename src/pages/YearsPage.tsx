@@ -5,6 +5,7 @@ import { sideMargins } from "../constants";
 import Loading from "../components/Loading";
 import Location from "../components/Location";
 import useData from "../state-management/useData";
+import Breadcrumb from "../components/Breadcrumb";
 
 const YearsPage = () => {
   const container = {
@@ -20,32 +21,32 @@ const YearsPage = () => {
   const { yearData, isLoading } = useData();
 
   return (
-    <Box
-      marginLeft={sideMargins}
-      marginRight={sideMargins}
-      marginTop={{ base: "20px", md: "50px", lg: "70px" }}
-    >
+    <>
       {isLoading ? (
         <Loading />
       ) : (
-        <SimpleGrid
-          columns={{ base: 1, md: 3, lg: 4, xl: 5 }}
-          spacing={8}
-          justifyContent="center"
-          as={motion.div}
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-        >
-          {yearData.map((year, index) => (
-            <YearCard key={index} data={year}>
-              <Location location={year.city} />
-            </YearCard>
-          ))}
-        </SimpleGrid>
+        <Box marginLeft={sideMargins} marginRight={sideMargins}>
+          <Breadcrumb lastPathName="Years" />
+          <SimpleGrid
+            marginTop={{ base: "20px", md: "30px", lg: "40px" }}
+            columns={{ base: 1, md: 3, lg: 4, xl: 5 }}
+            spacing={8}
+            justifyContent="center"
+            as={motion.div}
+            variants={container}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+          >
+            {yearData.map((year, index) => (
+              <YearCard key={index} data={year}>
+                <Location location={year.city} />
+              </YearCard>
+            ))}
+          </SimpleGrid>
+        </Box>
       )}
-    </Box>
+    </>
   );
 };
 

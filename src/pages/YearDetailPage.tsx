@@ -20,6 +20,7 @@ import {
   fetchYearData,
 } from "../state-management/fetchAndProcessFunctions";
 import Loading from "../components/Loading";
+import Breadcrumb from "../components/Breadcrumb";
 
 const YearDetailPage = () => {
   const { id } = useParams();
@@ -78,12 +79,13 @@ const YearDetailPage = () => {
         </>
       ) : (
         <>
+          <Breadcrumb lastPathName={currentYear.year} />
           <YearInfo data={currentYear} />
           <Heading fontSize="xl" marginBottom={bottomMarginHeading}>
             Most played songs
           </Heading>
           <Center marginBottom={bottomMarginSection}>
-            <HorizontalBarChart data={trackData}>
+            <HorizontalBarChart data={trackData.slice(0, 10)}>
               {(track) => <ChartLabel data={track} />}
             </HorizontalBarChart>
           </Center>
@@ -117,7 +119,7 @@ const YearDetailPage = () => {
             Most played artists
           </Heading>
           <Center>
-            <HorizontalBarChart data={artistData}>
+            <HorizontalBarChart data={artistData.slice(0, 10)}>
               {(artist) => <ChartLabel data={artist} />}
             </HorizontalBarChart>
           </Center>
