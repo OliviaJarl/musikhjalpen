@@ -59,6 +59,7 @@ const TrackInfo = ({ data, total }: Props) => {
                   lg: "2xl",
                   xl: "3xl",
                 }}
+                lineHeight={{base: "25px", md: "30px", lg: "35px", xl: "40px"}}
               >
                 {data.name}
               </Td>
