@@ -1,7 +1,7 @@
 import axios from "axios";
 import { stringSimilarity } from "string-similarity-js";
 
-const clientId = "a23ba4c1f71d4732aa1fbcc5f765203b"; // Original
+const clientId = "a23ba4c1f71d4732aa1fbcc5f765203b"; // Original, switching between two due to error 429. Choose one when running
 //const clientId = "5e60e02709bb4696b4a676be1f635b9e"; // New
 
 const params = new URLSearchParams(window.location.search);

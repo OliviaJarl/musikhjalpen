@@ -40,15 +40,14 @@ var axios_1 = require("axios");
 var buffer_1 = require("buffer");
 var fs = require("fs");
 var path = require("path");
-var client_id = 'a23ba4c1f71d4732aa1fbcc5f765203b'; // original
-//const client_id = "5e60e02709bb4696b4a676be1f635b9e"; // new
-var client_secret = '8b72a6405e194d689d065828dc4352d3'; // Ta bort sedan inför github, original
-//const client_secret = 'c83ff3a1f3fa4ba096571c5f5814246d'; // new
+// Before running, create a map data in src and in this map a file musikhjalpenYears.json. After running, all files should be moved to data in public
+//const client_id = 'a23ba4c1f71d4732aa1fbcc5f765203b'; // original, switching between two due to error 429. Choose one when running
+var client_id = "5e60e02709bb4696b4a676be1f635b9e"; // new
+//const client_secret = ''; // Add when running, original
+var client_secret = ''; // Add when running, new
 var baseEndPoint = "https://api.spotify.com/v1";
 var userId = "ovvi";
-// Create the authorization header value
 var authHeader = 'Basic ' + buffer_1.Buffer.from(client_id + ':' + client_secret).toString('base64');
-// Define the request configuration for Axios
 var authOptions = {
     method: 'post',
     url: 'https://accounts.spotify.com/api/token',
@@ -60,6 +59,7 @@ var authOptions = {
         'grant_type': 'client_credentials'
     })
 };
+var sleep = function (ms) { return new Promise(function (resolve) { return setTimeout(resolve, ms); }); };
 // Make all requests
 (0, axios_1.default)(authOptions)
     .then(function (response) { return __awaiter(void 0, void 0, void 0, function () {
@@ -75,20 +75,23 @@ var authOptions = {
                 _i = 0, playlists_1 = playlists;
                 _a.label = 2;
             case 2:
-                if (!(_i < playlists_1.length)) return [3 /*break*/, 5];
+                if (!(_i < playlists_1.length)) return [3 /*break*/, 6];
                 playlist = playlists_1[_i];
+                return [4 /*yield*/, sleep(10000)];
+            case 3:
+                _a.sent(); // Pause for ten seconds to make sure all calls will go through
                 year = playlist.year;
                 tracksAPIHref = playlist.tracks_api_href;
                 filePath = createTracksFile(year);
                 return [4 /*yield*/, fetchAllTracks(token, tracksAPIHref, filePath)];
-            case 3:
+            case 4:
                 _a.sent();
                 console.log("Finished this year");
-                _a.label = 4;
-            case 4:
+                _a.label = 5;
+            case 5:
                 _i++;
                 return [3 /*break*/, 2];
-            case 5: return [2 /*return*/];
+            case 6: return [2 /*return*/];
         }
     });
 }); })
@@ -97,11 +100,9 @@ var authOptions = {
 });
 function fetchMusikhjalpenPlaylists(token, baseEndPoint, user) {
     return __awaiter(this, void 0, void 0, function () {
-        var directoryPath, fileName, filePath, endPoint, playlistObjects;
+        var filePath, endPoint, playlistObjects;
         return __generator(this, function (_a) {
-            directoryPath = path.join(__dirname, '..', 'data');
-            fileName = 'musikTest.json';
-            filePath = path.join(directoryPath, fileName);
+            filePath = path.join(__dirname, '..', 'data', 'musikhjalpenYears.json');
             endPoint = "".concat(baseEndPoint, "/users/").concat(user, "/playlists");
             playlistObjects = [];
             return [2 /*return*/, axios_1.default
@@ -228,8 +229,8 @@ function fetchAllTracks(token, playlistEndPoint, filePath) {
     });
 }
 function createTracksFile(year) {
-    var directoryPath = path.join(__dirname, '..', 'public', 'data');
-    var fileName = "tracksTEST".concat(year, ".json");
+    var directoryPath = path.join(__dirname, '..', 'data');
+    var fileName = "tracks".concat(year, ".json");
     var filePath = path.join(directoryPath, fileName);
     var data = {
         tracks: []

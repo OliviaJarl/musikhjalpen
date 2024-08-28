@@ -3,20 +3,18 @@ import { Buffer } from 'buffer';
 import * as fs from 'fs';
 import * as path from 'path';
 
-
-const client_id = 'a23ba4c1f71d4732aa1fbcc5f765203b'; // original
-//const client_id = "5e60e02709bb4696b4a676be1f635b9e"; // new
-const client_secret = '8b72a6405e194d689d065828dc4352d3'; // Ta bort sedan inför github, original
-//const client_secret = 'c83ff3a1f3fa4ba096571c5f5814246d'; // new
+// Before running, create a map data in src and in this map a file musikhjalpenYears.json. After running, all files should be moved to data in public
+//const client_id = 'a23ba4c1f71d4732aa1fbcc5f765203b'; // original, switching between two due to error 429. Choose one when running
+const client_id = "5e60e02709bb4696b4a676be1f635b9e"; // new
+//const client_secret = ''; // Add when running, original
+const client_secret = ''; // Add when running, new
 
 
 const baseEndPoint = "https://api.spotify.com/v1";
 const userId = "ovvi";
 
-// Create the authorization header value
 const authHeader = 'Basic ' + Buffer.from(client_id + ':' + client_secret).toString('base64');
 
-// Define the request configuration for Axios
 const authOptions = {
   method: 'post',
   url: 'https://accounts.spotify.com/api/token',
@@ -28,6 +26,7 @@ const authOptions = {
     'grant_type': 'client_credentials'
   })
 };
+const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
 // Make all requests
 axios(authOptions)
@@ -36,6 +35,7 @@ axios(authOptions)
     console.log('Access Token:', token);
     const playlists = await fetchMusikhjalpenPlaylists(token, baseEndPoint, userId );
     for (const playlist of playlists) {
+      await sleep(10000);  // Pause for ten seconds to make sure all calls will go through
         const year: string = playlist.year;
         const tracksAPIHref = playlist.tracks_api_href;
         const filePath = createTracksFile(year);
@@ -48,10 +48,7 @@ axios(authOptions)
 });
 
 async function fetchMusikhjalpenPlaylists(token: string, baseEndPoint: string, user: string): Promise<MusikhjalpenYear[]> {
-    //const filePath = path.join(__dirname, 'data', 'musikhjalpenYears.json');
-    const directoryPath = path.join(__dirname, '..', 'public', 'data');
-    const fileName = 'musikhjalpenYears.json';
-    const filePath = path.join(directoryPath, fileName);
+    const filePath = path.join(__dirname, '..', 'data', 'musikhjalpenYears.json'); 
     const endPoint = `${baseEndPoint}/users/${user}/playlists`;
     const playlistObjects: MusikhjalpenYear[] = [];
   
@@ -162,7 +159,7 @@ async function fetchMusikhjalpenPlaylists(token: string, baseEndPoint: string, u
   }
 
   function createTracksFile(year: string): string {
-    const directoryPath = path.join(__dirname, '..', 'public', 'data');
+    const directoryPath = path.join(__dirname, '..', 'data');
     const fileName = `tracks${year}.json`;
     const filePath = path.join(directoryPath, fileName);
     
